@@ -1,966 +1,929 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt" id="html-root">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ian Andrade Obraczka | CV</title>
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <style>
-        /* Isolar layout do CV do main global: forçar bloco único e largura total do conteúdo */
-        main.cv-page {
-            margin-left: 150px;
-            min-height: 100vh;
-            /* Evita overflow horizontal quando há sidebar fixa de 150px */
-            width: calc(100% - 150px);
-            max-width: calc(100% - 150px);
-            background: linear-gradient(160deg, #faf8f5 0%, #f0ebe3 50%, #ebe6df 100%);
-            padding: 48px 24px 64px 24px;
-            box-sizing: border-box;
-            display: block;
-        }
-        /* Alinhado ao breakpoint do header em style.css (900px): menu vai para o topo e conteúdo usa largura total */
-        @media (max-width: 900px) {
-            main.cv-page {
-                margin-left: 0;
-                width: 100%;
-                max-width: 100%;
-                padding: 80px 20px 48px 20px;
-            }
-        }
-        @media (max-width: 768px) {
-            main.cv-page { padding: 24px 16px 48px; }
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Júlio Dantas | Data Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0c0f;
+      --bg2: #0f1217;
+      --bg3: #151a22;
+      --border: rgba(255,255,255,0.07);
+      --accent: #00d4ff;
+      --accent2: #7c3aed;
+      --accent3: #10b981;
+      --text: #e2e8f0;
+      --text-muted: #64748b;
+      --text-dim: #94a3b8;
+      --tag-bg: rgba(0,212,255,0.08);
+      --tag-border: rgba(0,212,255,0.2);
+      --font-mono: 'JetBrains Mono', monospace;
+      --font-display: 'Syne', sans-serif;
+    }
 
-        .cv-container {
-            max-width: 960px;
-            margin: 0 auto;
-            width: 100%;
-            min-width: 0;
-            overflow-wrap: break-word;
-            word-break: break-word;
-        }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        .cv-header {
-            margin-bottom: 28px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid rgba(0,0,0,0.08);
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-            white-space: normal;
-            width: 100%;
-        }
-        .cv-meta { word-break: break-word; white-space: normal; }
-        .cv-name {
-            font-size: clamp(2rem, 5vw, 2.75rem);
-            font-weight: 700;
-            color: #1a1a1a;
-            letter-spacing: -0.02em;
-            line-height: 1.2;
-            margin-bottom: 4px;
-            white-space: normal;
-        }
-        .cv-headline {
-            font-size: 1rem;
-            font-weight: 400;
-            color: #555;
-            line-height: 1.5;
-            margin-bottom: 16px;
-            white-space: normal;
-        }
-        .cv-meta {
-            font-size: 0.95rem;
-            color: #555;
-            font-weight: 400;
-            line-height: 1.8;
-        }
-        .cv-meta-line {
-            display: block;
-            margin-bottom: 2px;
-        }
-        .cv-meta .cv-meta-line:last-child { margin-bottom: 0; }
-        .cv-meta a {
-            color: #2c5282;
-            text-decoration: none;
-            /* Garante quebra de linha em email/URL em larguras intermediárias */
-            overflow-wrap: anywhere;
-            word-break: break-word;
-        }
-        .cv-meta a:hover { text-decoration: underline; }
+    html { scroll-behavior: smooth; }
 
-        .cv-summary {
-            font-size: 0.98rem;
-            color: #444;
-            line-height: 1.7;
-            margin: 0;
-            overflow-wrap: break-word;
-            word-break: break-word;
-        }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-mono);
+      font-size: 14px;
+      line-height: 1.7;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
 
-        .cv-timeline-item .cv-block {
-            margin-top: 6px;
-            margin-bottom: 0;
-        }
+    /* Noise texture overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.6;
+    }
 
-        .cv-section {
-            margin-bottom: 40px;
-            min-width: 0;
-        }
-        /* Evita colapso de margens para manter o mesmo espaçamento entre todas as seções */
-        .cv-section:not(:first-of-type) {
-            padding-top: 1px;
-        }
-        .cv-section-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: #2c5282;
-            margin-bottom: 20px;
-            padding-bottom: 8px;
-        }
+    /* Grid background */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
 
-        .cv-timeline {
-            position: relative;
-        }
-        .cv-timeline-item {
-            position: relative;
-            padding-left: 28px;
-            padding-bottom: 28px;
-            min-width: 0;
-            overflow-wrap: break-word;
-            word-break: break-word;
-        }
-        .cv-timeline-item:last-child { padding-bottom: 0; }
-        .cv-timeline-item::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 8px;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: #2c5282;
-            box-shadow: 0 0 0 3px rgba(44, 82, 130, 0.2);
-        }
-        .cv-timeline-item::after {
-            content: '';
-            position: absolute;
-            left: 4px;
-            top: 22px;
-            bottom: -4px;
-            width: 2px;
-            background: linear-gradient(180deg, rgba(44,82,130,0.4), transparent);
-        }
-        .cv-timeline-item:last-child::after { display: none; }
+    /* ─── LANG TOGGLE ─── */
+    .lang-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: flex-end;
+      padding: 10px 40px;
+      background: rgba(10,12,15,0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .lang-btn {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-left: 6px;
+    }
+    .lang-btn.active {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--tag-bg);
+    }
+    .lang-btn:hover:not(.active) { color: var(--text-dim); border-color: rgba(255,255,255,0.15); }
 
-        .cv-job-title {
-            font-size: 1.05rem;
-            font-weight: 600;
-            color: #1a1a1a;
-            margin-bottom: 2px;
-        }
-        .cv-job-meta {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 8px;
-        }
-        .cv-job-desc {
-            font-size: 0.95rem;
-            color: #444;
-            line-height: 1.65;
-            overflow-wrap: break-word;
-            word-break: break-word;
-        }
+    /* ─── WRAPPER ─── */
+    .wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 40px 80px;
+    }
 
-        .cv-edu-item, .cv-workshop-item {
-            padding: 14px 0;
-            border-bottom: 1px solid rgba(0,0,0,0.06);
-            min-width: 0;
-            overflow-wrap: break-word;
-            word-break: break-word;
-        }
-        .cv-edu-item:last-child, .cv-workshop-item:last-child { border-bottom: none; }
-        .cv-edu-item strong, .cv-workshop-item strong {
-            color: #1a1a1a;
-            font-size: 0.98rem;
-        }
-        .cv-edu-meta, .cv-workshop-meta {
-            font-size: 0.9rem;
-            color: #666;
-            margin-top: 4px;
-            overflow-wrap: anywhere;
-            word-break: break-word;
-            min-width: 0;
-        }
+    /* ─── HEADER ─── */
+    .cv-header {
+      margin-bottom: 56px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+      animation: fadeUp 0.6s ease both;
+    }
 
-        .cv-skills-block {
-            margin-bottom: 24px;
-        }
-        .cv-skills-block:last-child { margin-bottom: 0; }
-        .cv-skills-subtitle {
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: #2c5282;
-            margin-bottom: 10px;
-        }
-        .cv-skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px 10px;
-        }
-        .cv-skill-tag {
-            display: inline-block;
-            padding: 7px 12px;
-            background: rgba(44, 82, 130, 0.08);
-            color: #2c5282;
-            font-size: 0.85rem;
-            font-weight: 500;
-            border-radius: 6px;
-        }
+    .cv-prompt {
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      opacity: 0.8;
+    }
+    .cv-prompt::before { content: '> '; }
 
-        .cv-block ul {
-            list-style: none;
-            padding-left: 0;
-            margin: 0 0 16px 0;
-        }
-        .cv-block li {
-            position: relative;
-            padding-left: 20px;
-            margin-bottom: 10px;
-            font-size: 0.95rem;
-            color: #444;
-            line-height: 1.65;
-            overflow-wrap: break-word;
-            word-break: break-word;
-        }
-        .cv-block li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0.55em;
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            background: #2c5282;
-        }
+    .cv-name {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 6vw, 4.2rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .cv-name span {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-        .cv-download {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 32px;
-            padding: 12px 20px;
-            background: #2c5282;
-            color: #fff;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            border-radius: 8px;
-            transition: background 0.2s, transform 0.2s;
-            max-width: 100%;
-            flex-wrap: wrap;
-            white-space: normal;
-        }
-        .cv-download:hover {
-            background: #234e77;
-            transform: translateY(-1px);
-        }
+    .cv-title {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-dim);
+      letter-spacing: 0.05em;
+      margin-bottom: 28px;
+    }
 
-        @media print {
-            @page { size: A4; margin: 0; }
-            html, body { margin: 0; padding: 0; background: #faf8f5 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-            header, .cv-download, nav, .language-selector { display: none !important; }
-            main.cv-page { margin: 0 auto !important; width: 100% !important; max-width: 100% !important; padding: 14mm 12mm !important; background: #faf8f5 !important; box-sizing: border-box; }
-            .cv-container { font-size: 85%; max-width: 180mm; margin: 0 auto; }
-            .cv-name { font-size: 1.85rem !important; }
-            .cv-headline { font-size: 0.9rem !important; margin-bottom: 10px; }
-            .cv-header { margin-bottom: 14px; padding-bottom: 12px; }
-            .cv-section { margin-bottom: 22px !important; page-break-inside: avoid; }
-            .cv-section:not(:first-of-type) { padding-top: 24px; }
-            .cv-section-title { font-size: 0.95rem !important; margin-bottom: 10px; }
-            .cv-timeline-item { padding-bottom: 12px !important; page-break-inside: avoid; }
-            .cv-job-title { font-size: 0.9rem; }
-            .cv-job-meta { font-size: 0.78rem; margin-bottom: 4px; }
-            .cv-block ul { margin-bottom: 8px; }
-            .cv-block li { font-size: 0.76rem; margin-bottom: 5px; line-height: 1.42; }
-            .cv-edu-item, .cv-workshop-item { padding: 10px 0; page-break-inside: avoid; }
-            .cv-edu-item strong, .cv-workshop-item strong { font-size: 0.88rem; }
-            .cv-skills-block { margin-bottom: 18px; }
-            .cv-skills-block:last-child { margin-bottom: 0; }
-            .cv-skills-subtitle { font-size: 0.7rem; margin-bottom: 6px; }
-            .cv-skills { justify-content: flex-start; flex-wrap: wrap; gap: 6px 8px; }
-            .cv-skill-tag { padding: 3px 6px; font-size: 0.65rem; flex-shrink: 0; }
-        }
-    </style>
+    .cv-contacts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 20px;
+    }
+    .cv-contact {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 12px;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .cv-contact:hover { color: var(--accent); }
+    .cv-contact .ico {
+      width: 14px; height: 14px;
+      opacity: 0.5;
+      flex-shrink: 0;
+    }
+
+    /* ─── SECTION ─── */
+    .cv-section {
+      margin-bottom: 48px;
+      animation: fadeUp 0.6s ease both;
+    }
+    .cv-section:nth-child(2) { animation-delay: 0.1s; }
+    .cv-section:nth-child(3) { animation-delay: 0.15s; }
+    .cv-section:nth-child(4) { animation-delay: 0.2s; }
+    .cv-section:nth-child(5) { animation-delay: 0.25s; }
+    .cv-section:nth-child(6) { animation-delay: 0.3s; }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 24px;
+    }
+    .section-label::before {
+      content: '';
+      width: 3px; height: 16px;
+      background: linear-gradient(180deg, var(--accent), var(--accent2));
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, var(--border), transparent);
+    }
+
+    /* ─── SUMMARY ─── */
+    .cv-summary {
+      font-size: 13.5px;
+      color: var(--text-dim);
+      line-height: 1.8;
+      padding: 20px 24px;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+    }
+
+    /* ─── TIMELINE ─── */
+    .cv-job {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      padding-left: 20px;
+    }
+    .cv-job:last-child { border-bottom: none; }
+    .cv-job::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 30px;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent);
+    }
+
+    .cv-job-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+    .cv-job-title {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.01em;
+    }
+    .cv-job-period {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-weight: 400;
+      white-space: nowrap;
+      background: var(--bg3);
+      padding: 3px 10px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+    }
+    .cv-job-company {
+      font-size: 12px;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 10px;
+      opacity: 0.85;
+    }
+    .cv-job-desc {
+      font-size: 12.5px;
+      color: var(--text-dim);
+      line-height: 1.75;
+      margin-bottom: 12px;
+    }
+    .cv-job-desc ul {
+      list-style: none;
+      padding: 0;
+    }
+    .cv-job-desc li {
+      padding-left: 16px;
+      position: relative;
+      margin-bottom: 5px;
+    }
+    .cv-job-desc li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--accent2);
+      font-size: 10px;
+      top: 3px;
+    }
+
+    /* stack tags inside job */
+    .cv-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+    .cv-stack-tag {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      padding: 3px 9px;
+      border-radius: 4px;
+      background: rgba(124,58,237,0.12);
+      border: 1px solid rgba(124,58,237,0.25);
+      color: #a78bfa;
+    }
+
+    /* ─── EDUCATION ─── */
+    .cv-edu-item {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .cv-edu-item:last-child { border-bottom: none; }
+    .cv-edu-degree {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .cv-edu-meta {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+    .cv-edu-meta span {
+      color: var(--accent3);
+    }
+
+    /* ─── CERTS ─── */
+    .cv-cert-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .cv-cert-item:last-child { border-bottom: none; }
+    .cv-cert-badge {
+      width: 32px; height: 32px;
+      background: linear-gradient(135deg, var(--accent2), var(--accent));
+      border-radius: 6px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+    .cv-cert-title {
+      font-size: 13px;
+      color: var(--text);
+      font-weight: 500;
+    }
+    .cv-cert-issuer {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* ─── SKILLS ─── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .skills-group-title {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent3);
+      margin-bottom: 10px;
+    }
+    .skills-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .skill-tag {
+      font-size: 11px;
+      font-weight: 500;
+      padding: 5px 11px;
+      border-radius: 5px;
+      background: var(--tag-bg);
+      border: 1px solid var(--tag-border);
+      color: var(--accent);
+      transition: all 0.2s;
+    }
+    .skill-tag:hover {
+      background: rgba(0,212,255,0.15);
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    /* ─── ANIMATION ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── PRINT ─── */
+    @media print {
+      body::before, body::after { display: none; }
+      .lang-bar { display: none; }
+      body { background: #0a0c0f !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .wrapper { padding: 20px 30px; }
+      @page { size: A4; margin: 0; }
+      .cv-section { animation: none; }
+    }
+
+    @media (max-width: 600px) {
+      .wrapper { padding: 32px 20px 60px; }
+      .lang-bar { padding: 10px 20px; }
+      .cv-job-header { flex-direction: column; }
+    }
+
+    /* ─── LANG CONTROL ─── */
+    [data-lang] { display: none; }
+    .lang-pt [data-lang="pt"] { display: revert; }
+    .lang-en [data-lang="en"] { display: revert; }
+    span[data-lang] { display: inline; }
+    .lang-pt span[data-lang="en"],
+    .lang-en span[data-lang="pt"] { display: none; }
+  </style>
 </head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html" data-translate="nav.projects">Projects</a></li>
-                <li><a href="about.html" data-translate="nav.about">About</a></li>
-                <li><a href="contact.html" data-translate="nav.contact">Contact</a></li>
-                <li><a href="cv.html" data-translate="nav.cv">Resume</a></li>
-            </ul>
-            <div class="language-selector">
-                <select id="languageSelect" onchange="changeLanguage(this.value)">
-                    <option value="pt">PT</option>
-                    <option value="en">EN</option>
-                    <option value="es">ES</option>
-                </select>
-            </div>
-        </nav>
+<body class="lang-pt" id="body-root">
+
+  <!-- LANG BAR -->
+  <div class="lang-bar">
+    <button class="lang-btn active" id="btn-pt" onclick="setLang('pt')">PT</button>
+    <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+  </div>
+
+  <div class="wrapper">
+
+    <!-- ── HEADER ── -->
+    <header class="cv-header">
+      <p class="cv-prompt">
+        <span data-lang="pt">currículo.exe inicializado</span>
+        <span data-lang="en">resume.exe initialized</span>
+      </p>
+      <h1 class="cv-name">Júlio <span>Dantas</span></h1>
+      <p class="cv-title">
+        <span data-lang="pt">Engenheiro de Dados · Arquiteto de Dados · DataOps · Azure</span>
+        <span data-lang="en">Data Engineer · Data Architect · DataOps · Azure</span>
+      </p>
+      <div class="cv-contacts">
+        <a class="cv-contact" href="mailto:julio.dantas@yahoo.com.br">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          julio.dantas@yahoo.com.br
+        </a>
+        <a class="cv-contact" href="tel:+5521982270928">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.06 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          (21) 98227-0928
+        </a>
+        <a class="cv-contact" href="https://linkedin.com/in/júlio-dantas-04503b4a" target="_blank" rel="noopener">
+          <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          linkedin.com/in/júlio-dantas
+        </a>
+        <a class="cv-contact" href="https://github.com/juliodantas" target="_blank" rel="noopener">
+          <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          github.com/juliodantas
+        </a>
+        <span class="cv-contact">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Rio de Janeiro, Brasil
+        </span>
+      </div>
     </header>
-    <main class="cv-page">
-        <div class="cv-container">
-            <div class="cv-header">
-                <h1 class="cv-name">Ian Andrade Obraczka</h1>
-                <p class="cv-headline" data-translate="cv.headline">Backend Engineer | Production Systems | Leadership</p>
-                <p class="cv-meta">
-                    <span class="cv-meta-line" data-translate="cv.meta.location">📍 Brazil — open to remote work</span>
-                    <span class="cv-meta-line">📧 <a href="mailto:ianobraczka@gmail.com">ianobraczka@gmail.com</a></span>
-                    <span class="cv-meta-line">💼 <a href="https://linkedin.com/in/ianobraczka" target="_blank" rel="noopener">linkedin.com/in/ianobraczka</a></span>
-                    <span class="cv-meta-line">💻 <a href="https://github.com/ianobraczka" target="_blank" rel="noopener">github.com/ianobraczka</a></span>
-                </p>
-            </div>
 
-            <section class="cv-section">
-                <h2 class="cv-section-title" data-translate="cv.section.summary">Summary</h2>
-                <p class="cv-summary" data-translate="cv.summary">
-                    Backend engineer and technical leader with over a decade of experience building and maintaining production systems. Strong track record in API design, database architecture and system reliability.
-                    <br><br>Combines hands-on development with leadership: technical decisions, team coordination and knowledge transfer. Experience in education and digital projects reinforces communication and mentoring skills. Based in Rio de Janeiro, Brazil.
-                </p>
-            </section>
+    <!-- ── SUMMARY ── -->
+    <section class="cv-section">
+      <div class="section-label" data-lang="pt">Resumo</div>
+      <div class="section-label" data-lang="en">Summary</div>
+      <p class="cv-summary" data-lang="pt">
+        Profissional de dados orientado a resultados, com trajetória sólida em transformar empresas em organizações verdadeiramente data-driven. Especializado em projetar e evoluir plataformas de dados modernas com forte ênfase em arquiteturas Azure e Snowflake. Atuo de ponta a ponta no ciclo de vida dos dados — da ingestão e modelagem até a entrega de valor estratégico. Busco continuamente novas tecnologias e abordagens que elevem as capacidades dos times e impulsionem inovação.
+      </p>
+      <p class="cv-summary" data-lang="en">
+        Results-driven data professional with a strong track record in transforming companies into truly data-driven organizations. Specialized in designing and evolving modern data platforms with emphasis on Azure and Snowflake architectures. I operate end-to-end across the data lifecycle — from ingestion and modeling through transformation to delivering high-impact strategic value. I continuously seek new technologies and approaches that elevate team capabilities and drive continuous innovation.
+      </p>
+    </section>
 
-            <section class="cv-section">
-                <h2 class="cv-section-title" data-translate="cv.section.education">Education</h2>
-                <div class="cv-edu-item">
-                    <strong data-translate="cv.edu.1.title">Extension Course in Programming</strong>
-                    <div class="cv-edu-meta" data-translate="cv.edu.1.meta">ORT Institute of Technology (2012)</div>
-                </div>
-                <div class="cv-edu-item">
-                    <strong data-translate="cv.edu.3.title">Leadership and Education Program</strong>
-                    <div class="cv-edu-meta" data-translate="cv.edu.3.meta">Machon leMadrichim – Jerusalem (2014) <br>Part of Shnat Hachshará Youth Program; courses in Oratory, Decision Making and Leadership Techniques.</div>
-                </div>
-                <div class="cv-edu-item">
-                    <strong data-translate="cv.edu.4.title">Bachelor in Information Systems</strong>
-                    <div class="cv-edu-meta" data-translate="cv.edu.4.meta">Federal University of the State of Rio de Janeiro - UNIRIO (2019) <br>Focus on modeling, development and management of modern Information Systems.</div>
-                </div>
-                <div class="cv-edu-item">
-                    <strong data-translate="cv.edu.6.title">Postgraduate degree in Education and Psychopedagogy</strong>
-                    <div class="cv-edu-meta" data-translate="cv.edu.6.meta">UniBF (2023)</div>
-                </div>
-            </section>
+    <!-- ── EXPERIENCE ── -->
+    <section class="cv-section">
+      <div class="section-label" data-lang="pt">Experiência Profissional</div>
+      <div class="section-label" data-lang="en">Professional Experience</div>
 
-            <section class="cv-section">
-                <h2 class="cv-section-title" data-translate="cv.section.exp.tech">Professional Experience — Technology</h2>
-                <div class="cv-timeline">
-                    <div class="cv-timeline-item">
-                        <div class="cv-job-title" data-translate="cv.tech.1.title">Backend Engineer</div>
-                        <div class="cv-job-meta" data-translate="cv.tech.1.meta">Meetal · 2025 – present</div>
-                        <div class="cv-block">
-                            <ul>
-                                <li data-translate="cv.tech.1.1">Develop and maintain backend services for an ERP platform in production with active clients.</li>
-                                <li data-translate="cv.tech.1.3">Responsible for database schema maintenance, implementation of new features and integration with external APIs.</li>
-                                <li data-translate="cv.tech.1.4">Analyze system performance, identifying bottlenecks in high-usage flows and optimizing critical operations.</li>
-                                <li data-translate="cv.tech.1.5">Participate in architectural discussions and backend evolution to support increasing system complexity.</li>
-                                <li data-translate="cv.tech.1.2">Work with Python, FastAPI, Alembic, AWS Lambda, API Gateway and DynamoDB.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="cv-timeline-item">
-                        <div class="cv-job-title" data-translate="cv.tech.2.title">ReUsa Project — UERJ Partnership — Technical Lead</div>
-                        <div class="cv-job-meta" data-translate="cv.tech.2.meta">Universidade do Estado do Rio de Janeiro · 2020 – 2023</div>
-                        <div class="cv-block">
-                            <ul>
-                                <li data-translate="cv.tech.2.1">Led the technical development of an MVP application for management and negotiation of reused water resources.</li>
-                                <li data-translate="cv.tech.2.2">Defined the initial architecture, technology stack and development approach, prioritizing speed and flexibility.</li>
-                                <li data-translate="cv.tech.2.3">Implemented backend services and data models while coordinating the technical team.</li>
-                                <li data-translate="cv.tech.2.4">Ensured documentation quality and executed a structured knowledge transfer during project handover.</li>
-                                <li data-translate="cv.tech.2.5">Work with Java, Kotlin and Google Firebase.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="cv-timeline-item">
-                        <div class="cv-job-title" data-translate="cv.tech.3.title">IT Manager / Full-stack Developer (Tech Lead)</div>
-                        <div class="cv-job-meta" data-translate="cv.tech.3.meta">Vandal · 2015 – 2021</div>
-                        <div class="cv-block">
-                            <ul>
-                                <li data-translate="cv.tech.3.1">Took full ownership of backend systems and infrastructure for a platform in production with thousands of users over several years.</li>
-                                <li data-translate="cv.tech.3.2">Designed and implemented a custom logistics and production management module, choosing a bespoke solution to support complex business rules.</li>
-                                <li data-translate="cv.tech.3.3">Integrated external services such as payment gateways and shipping providers, handling unstable APIs and outdated documentation.</li>
-                                <li data-translate="cv.tech.3.4">Developed integrations with hardware devices (electronic scales via serial communication) to automate operational workflows.</li>
-                                <li data-translate="cv.tech.3.5">Managed infrastructure components including Nginx and Elasticsearch, handling production incidents and long-term system maintenance.</li>
-                                <li data-translate="cv.tech.3.6">Acted as the primary technical reference, making architectural decisions and continuously improving system reliability.</li>
-                                <li data-translate="cv.tech.3.7">Development with Ruby on Rails and MongoDB.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="cv-timeline-item">
-                        <div class="cv-job-title" data-translate="cv.tech.4.title">Backend Developer</div>
-                        <div class="cv-job-meta" data-translate="cv.tech.4.meta">Ambiental Engenharia & Consultoria · 2012 – 2013</div>
-                        <div class="cv-block">
-                            <ul>
-                                <li data-translate="cv.tech.4.1">Developed and maintained internal backend systems.</li>
-                                <li data-translate="cv.tech.4.2">Worked with data management, database maintenance and internal business rules.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="cv-timeline-item">
-                        <div class="cv-job-title" data-translate="cv.tech.5.title">IT Intern / Junior Developer</div>
-                        <div class="cv-job-meta" data-translate="cv.tech.5.meta">Responde Aí · 2012</div>
-                        <div class="cv-block">
-                            <ul>
-                                <li data-translate="cv.tech.5.1">Contributed to the development of the educational web application.</li>
-                                <li data-translate="cv.tech.5.2">Analyzed and helped refactor the database architecture.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="cv-section">
-                <h2 class="cv-section-title" data-translate="cv.section.exp.edu">Professional Experience — Education & Leadership</h2>
-                <div class="cv-timeline">
-                    <div class="cv-timeline-item">
-                        <div class="cv-job-title" data-translate="cv.edulead.1.title">Digital Education Teacher & Researcher</div>
-                        <div class="cv-job-meta" data-translate="cv.edulead.1.meta">Our Lady of Mercy School · 2022 – present</div>
-                        <div class="cv-block">
-                            <ul>
-                                <li data-translate="cv.edulead.1.1">Teach and research topics related to digital education, programming and applied technology.</li>
-                                <li data-translate="cv.edulead.1.2">Design workshops and curricular activities focused on computational thinking and real-world applications.</li>
-                                <li data-translate="cv.edulead.1.3">Conduct Advanced Placement (AP) Computer Science A classes as a College Board certified teacher.</li>
-                                <li data-translate="cv.edulead.1.4">Bilingual teaching: deliver classes in English.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="cv-timeline-item">
-                        <div class="cv-job-title" data-translate="cv.edulead.2.title">Programming Teacher</div>
-                        <div class="cv-job-meta" data-translate="cv.edulead.2.meta">ORT Tech Institute · 2019 – 2022</div>
-                        <div class="cv-block">
-                            <ul>
-                                <li data-translate="cv.edulead.2.1">Main teacher for Programming Languages and Advanced Programming Techniques courses.</li>
-                                <li data-translate="cv.edulead.2.2">Mentored students in software development fundamentals, algorithms and problem-solving.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="cv-timeline-item">
-                        <div class="cv-job-title" data-translate="cv.edulead.3.title">Programming Teacher</div>
-                        <div class="cv-job-meta" data-translate="cv.edulead.3.meta">Andrew's School · 2022 – 2023</div>
-                        <div class="cv-block">
-                            <ul>
-                                <li data-translate="cv.edulead.3.1">Taught programming fundamentals to high school students, focusing on logic, structure and practical applications.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="cv-timeline-item">
-                        <div class="cv-job-title" data-translate="cv.edulead.4.title">Technical Integration Manager</div>
-                        <div class="cv-job-meta" data-translate="cv.edulead.4.meta">ORT Tech Institute · 2020 – 2022</div>
-                        <div class="cv-block">
-                            <ul>
-                                <li data-translate="cv.edulead.4.1">Management of all information systems used by the school.</li>
-                                <li data-translate="cv.edulead.4.2">Contact with potential new partners.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="cv-timeline-item">
-                        <div class="cv-job-title" data-translate="cv.edulead.5.title">Programming Instructor</div>
-                        <div class="cv-job-meta" data-translate="cv.edulead.5.meta">CodeComet · 2020 – 2022</div>
-                        <div class="cv-block">
-                            <ul>
-                                <li data-translate="cv.edulead.5.1">Teaching programming logic to children and teenagers.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="cv-timeline-item">
-                        <div class="cv-job-title" data-translate="cv.edulead.6.title">Educator</div>
-                        <div class="cv-job-meta" data-translate="cv.edulead.6.meta">Chazit Hanoar Youth Movement · 2011 – 2016</div>
-                        <div class="cv-block">
-                            <ul>
-                                <li data-translate="cv.edulead.6.1">Planning and delivery of educational activities.</li>
-                                <li data-translate="cv.edulead.6.2">General secretary at Rio de Janeiro head office (2015).</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="cv-section">
-                <h2 class="cv-section-title" data-translate="cv.section.certifications">Certifications & Professional Development</h2>
-                <div class="cv-workshop-item">
-                    <strong data-translate="cv.cert.1.title">AI Empowerment for Communities</strong>
-                    <div class="cv-workshop-meta" data-translate="cv.cert.1.meta">VJAL Institute (2024)</div>
-                </div>
-                <div class="cv-workshop-item">
-                    <strong data-translate="cv.cert.2.title">AI for Data Analysis</strong>
-                    <div class="cv-workshop-meta" data-translate="cv.cert.2.meta">AMISA (2025)</div>
-                </div>
-                <div class="cv-workshop-item">
-                    <strong data-translate="cv.cert.3.title">AP Computer Science A – Teacher Training Workshop</strong>
-                    <div class="cv-workshop-meta" data-translate="cv.cert.3.meta">College Board (2023)</div>
-                </div>
-                <div class="cv-workshop-item">
-                    <strong data-translate="cv.cert.4.title">Leadership in Education, Administration and Development</strong>
-                    <div class="cv-workshop-meta" data-translate="cv.cert.4.meta">World ORT – LEAD Program (2021)</div>
-                </div>
-                <div class="cv-workshop-item">
-                    <strong data-translate="cv.cert.5.title">Workshop Presenter Badge</strong>
-                    <div class="cv-workshop-meta" data-translate="cv.cert.5.meta">AMISA (2025)</div>
-                </div>
-                <div class="cv-workshop-item">
-                    <strong data-translate="cv.cert.6.title">LEGO Instructors Workshop</strong>
-                    <div class="cv-workshop-meta" data-translate="cv.cert.6.meta">Positivo (2022)</div>
-                </div>
-                <div class="cv-workshop-item">
-                    <strong data-translate="cv.cert.7.title">AI in Education Training Workshop</strong>
-                    <div class="cv-workshop-meta" data-translate="cv.cert.7.meta">Our Lady of Mercy School Rio (2024)</div>
-                </div>
-            </section>
-
-            <section class="cv-section">
-                <h2 class="cv-section-title" data-translate="cv.section.skills">Skills</h2>
-                <div class="cv-skills-block">
-                    <h3 class="cv-skills-subtitle" data-translate="cv.skills.backend.title">Backend & Architecture</h3>
-                    <div class="cv-skills">
-                        <span class="cv-skill-tag">Ruby</span>
-                        <span class="cv-skill-tag">Python</span>
-                        <span class="cv-skill-tag">FastAPI</span>
-                        <span class="cv-skill-tag">Node.js</span>
-                        <span class="cv-skill-tag">Java</span>
-                        <span class="cv-skill-tag">Kotlin</span>
-                        <span class="cv-skill-tag">API Gateway</span>
-                        <span class="cv-skill-tag">API design</span>
-                        <span class="cv-skill-tag">OpenAI</span>
-                        <span class="cv-skill-tag">Testing</span>
-                    </div>
-                </div>
-                <div class="cv-skills-block">
-                    <h3 class="cv-skills-subtitle" data-translate="cv.skills.db.title">Databases & Infrastructure</h3>
-                    <div class="cv-skills">
-                        <span class="cv-skill-tag">PostgreSQL</span>
-                        <span class="cv-skill-tag">DynamoDB</span>
-                        <span class="cv-skill-tag">MongoDB</span>
-                        <span class="cv-skill-tag">Firebase</span>
-                        <span class="cv-skill-tag">AWS</span>
-                        <span class="cv-skill-tag">Docker</span>
-                        <span class="cv-skill-tag">Nginx</span>
-                        <span class="cv-skill-tag">Elasticsearch</span>
-                        <span class="cv-skill-tag">Alembic</span>
-                        <span class="cv-skill-tag">Linux / UNIX</span>
-                    </div>
-                </div>
-                <div class="cv-skills-block">
-                    <h3 class="cv-skills-subtitle" data-translate="cv.skills.leadership.title">Leadership & Collaboration</h3>
-                    <div class="cv-skills">
-                        <span class="cv-skill-tag">Tech Lead</span>
-                        <span class="cv-skill-tag" data-translate="cv.skills.leadership.tag1">Team coordination</span>
-                        <span class="cv-skill-tag" data-translate="cv.skills.leadership.tag2">Communication</span>
-                        <span class="cv-skill-tag" data-translate="cv.skills.leadership.tag3">Agile development</span>
-                        <span class="cv-skill-tag" data-translate="cv.skills.leadership.tag4">Teaching</span>
-                        <span class="cv-skill-tag" data-translate="cv.skills.leadership.tag5">Documentation</span>
-                    </div>
-                </div>
-                <div class="cv-skills-block">
-                    <h3 class="cv-skills-subtitle" data-translate="cv.skills.languages.title">Languages</h3>
-                    <div class="cv-skills">
-                        <span class="cv-skill-tag" data-translate="cv.skills.lang.pt">Portuguese (Native)</span>
-                        <span class="cv-skill-tag" data-translate="cv.skills.lang.en">English (Fluent)</span>
-                        <span class="cv-skill-tag" data-translate="cv.skills.lang.es">Spanish (Advanced)</span>
-                        <span class="cv-skill-tag" data-translate="cv.skills.lang.he">Hebrew (Intermediate)</span>
-                    </div>
-                </div>
-            </section>
-
-            <a href="#" class="cv-download" id="cv-download-btn" role="button" data-translate="cv.download">Download PDF résumé</a>
+      <!-- Pantheon -->
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <div class="cv-job-title">Sr. Data Engineer</div>
+          <div class="cv-job-period">
+            <span data-lang="pt">Out 2021 – Presente</span>
+            <span data-lang="en">Oct 2021 – Present</span>
+          </div>
         </div>
-    </main>
-    <script>
-        const translations = {
-            pt: {
-                'nav.projects': 'Projetos',
-                'nav.about': 'Sobre',
-                'nav.cv': 'Currículo',
-                'nav.contact': 'Contato',
-                'cv.headline': 'Engenheiro de Backend | Sistemas em Produção | Liderança',
-                'cv.meta.location': '📍 Brasil — aberto a trabalho remoto',
-                'cv.section.summary': 'Resumo',
-                'cv.summary': 'Engenheiro de backend e líder técnico com mais de uma década de experiência construindo e mantendo sistemas em produção. Histórico sólido em design de APIs, arquitetura de dados e confiabilidade de sistemas.<br><br>Combina desenvolvimento prático com liderança: decisões técnicas, coordenação de equipe e transferência de conhecimento. Experiência em educação e projetos digitais reforça comunicação e mentoria. Baseado em Rio de Janeiro, Brasil.',
-                'cv.section.education': 'Formação',
-                'cv.section.exp.tech': 'Experiência Profissional — Tecnologia',
-                'cv.section.exp.edu': 'Experiência Profissional — Educação e Liderança',
-                'cv.section.certifications': 'Certificações e Desenvolvimento Profissional',
-                'cv.section.skills': 'Habilidades',
-                'cv.download': 'Baixar currículo em PDF',
-                'cv.edu.1.title': 'Curso de extensão em Programação',
-                'cv.edu.1.meta': 'Instituto de Tecnologia ORT (2012)',
-                'cv.edu.2.title': 'Curso de inglês',
-                'cv.edu.2.meta': 'Brasas (conclusão 2011)',
-                'cv.edu.3.title': 'Programa de Liderança e Educação',
-                'cv.edu.3.meta': 'Machon leMadrichim – Jerusalém (2014) <br>Cursos em oratória, tomada de decisão e técnicas de liderança.',
-                'cv.edu.4.title': 'Bacharelado em Sistemas de Informação',
-                'cv.edu.4.meta': 'Universidade Federal do Estado do Rio de Janeiro - UNIRIO (2019) <br>Foco em modelagem, desenvolvimento e gestão de sistemas de informação.',
-                'cv.edu.6.title': 'Pós-graduação em Educação e Psicopedagogia',
-                'cv.edu.6.meta': 'UniBF (2023)',
-                'cv.tech.1.title': 'Engenheiro de Backend',
-                'cv.tech.1.meta': 'Meetal · 2025 – presente',
-                'cv.tech.1.1': 'Desenvolvimento e manutenção de serviços backend para plataforma ERP em produção com clientes ativos.',
-                'cv.tech.1.2': 'Atuação usando Python, FastAPI, Alembic, AWS Lambda, API Gateway e DynamoDB.',
-                'cv.tech.1.3': 'Responsável por manutenção de esquema de banco de dados, implementação de novas funcionalidades e integração com APIs externas.',
-                'cv.tech.1.4': 'Análise de desempenho do sistema, identificação de gargalos em fluxos de alto uso e otimização de operações críticas.',
-                'cv.tech.1.5': 'Participação em discussões de arquitetura e evolução do backend para suportar maior complexidade do sistema.',
-                'cv.tech.2.title': 'ReUsa — Parceria UERJ — Líder Técnico',
-                'cv.tech.2.meta': 'Universidade do Estado do Rio de Janeiro · 2020 – 2023',
-                'cv.tech.2.1': 'Liderança técnica do desenvolvimento de um MVP para gestão e negociação de recursos hídricos reutilizados.',
-                'cv.tech.2.2': 'Definição da arquitetura inicial, stack tecnológico e abordagem de desenvolvimento, priorizando velocidade e flexibilidade.',
-                'cv.tech.2.3': 'Implementação de serviços backend e modelos de dados com coordenação da equipe técnica.',
-                'cv.tech.2.4': 'Garantia de qualidade da documentação e execução de transferência de conhecimento estruturada na entrega do projeto.',
-                'cv.tech.2.5': 'Atuação usando Java, Kotlin e Google Firebase.',
-                'cv.tech.3.title': 'Gerente de TI / Desenvolvedor Full-stack (Tech Lead)',
-                'cv.tech.3.meta': 'Vandal · 2015 – 2021',
-                'cv.tech.3.1': 'Responsabilidade integral por sistemas backend e infraestrutura de uma plataforma em produção com milhares de usuários ao longo de vários anos.',
-                'cv.tech.3.2': 'Projeto e implementação de módulo customizado de logística e gestão de produção, com solução sob medida para regras de negócio complexas.',
-                'cv.tech.3.3': 'Integração de serviços externos (gateways de pagamento, transportadoras), lidando com APIs instáveis e documentação desatualizada.',
-                'cv.tech.3.4': 'Desenvolvimento de integrações com dispositivos de hardware (balanças eletrônicas via comunicação serial) para automação de fluxos operacionais.',
-                'cv.tech.3.5': 'Gestão de componentes de infraestrutura (Nginx, Elasticsearch), tratamento de incidentes em produção e manutenção de longo prazo.',
-                'cv.tech.3.6': 'Referência técnica principal: decisões de arquitetura e melhoria contínua da confiabilidade do sistema.',
-                'cv.tech.3.7': 'Desenvolvimento com Ruby on Rails e MongoDB.',
-                'cv.tech.4.title': 'Desenvolvedor Backend',
-                'cv.tech.4.meta': 'Ambiental Engenharia & Consultoria · 2012 – 2013',
-                'cv.tech.4.1': 'Desenvolvimento e manutenção de sistemas backend internos.',
-                'cv.tech.4.2': 'Atuação em gestão de dados, manutenção de banco de dados e regras de negócio internas.',
-                'cv.tech.5.title': 'Estagiário de TI / Desenvolvedor Júnior',
-                'cv.tech.5.meta': 'Responde Aí · 2012',
-                'cv.tech.5.1': 'Contribuição no desenvolvimento da aplicação web educacional.',
-                'cv.tech.5.2': 'Análise e contribuição na refatoração da arquitetura do banco de dados.',
-                'cv.edulead.1.title': 'Professor e Pesquisador em Educação Digital',
-                'cv.edulead.1.meta': 'Our Lady of Mercy School · 2022 – presente',
-                'cv.edulead.1.1': 'Ensino e pesquisa em educação digital, programação e tecnologia aplicada.',
-                'cv.edulead.1.2': 'Desenho de workshops e atividades curriculares em pensamento computacional e aplicações reais.',
-                'cv.edulead.1.3': 'Ministro aulas de Advanced Placement (AP) Computer Science A como professor certificado pelo College Board.',
-                'cv.edulead.1.4': 'Ensino bilíngue: aulas em inglês.',
-                'cv.edulead.2.title': 'Professor de Programação',
-                'cv.edulead.2.meta': 'Instituto ORT · 2019 – 2022',
-                'cv.edulead.2.1': 'Professor principal das disciplinas de Linguagens de Programação e Técnicas Avançadas de Programação.',
-                'cv.edulead.2.2': 'Mentoria de alunos em fundamentos de desenvolvimento de software, algoritmos e resolução de problemas.',
-                'cv.edulead.3.title': 'Professor de Programação',
-                'cv.edulead.3.meta': "Andrew's School · 2022 – 2023",
-                'cv.edulead.3.1': 'Ensino de fundamentos de programação para ensino médio, com foco em lógica, estrutura e aplicações práticas.',
-                'cv.edulead.4.title': 'Gerente de Integração Técnica',
-                'cv.edulead.4.meta': 'Instituto ORT · 2020 – 2022',
-                'cv.edulead.4.1': 'Gerência de todos os sistemas de informação utilizados pela escola.',
-                'cv.edulead.4.2': 'Contato com possíveis novos parceiros.',
-                'cv.edulead.5.title': 'Instrutor de Programação',
-                'cv.edulead.5.meta': 'CodeComet · 2020 – 2022',
-                'cv.edulead.5.1': 'Ensino de lógica de programação para crianças e adolescentes.',
-                'cv.edulead.6.title': 'Educador',
-                'cv.edulead.6.meta': 'Movimento Juvenil Chazit Hanoar · 2011 – 2016',
-                'cv.edulead.6.1': 'Planejamento e condução de atividades educativas.',
-                'cv.edulead.6.2': 'Secretário geral da sede Rio de Janeiro (2015).',
-                'cv.cert.1.title': 'AI Empowerment for Communities',
-                'cv.cert.1.meta': 'VJAL Institute (2024)',
-                'cv.cert.2.title': 'AI for Data Analysis',
-                'cv.cert.2.meta': 'AMISA (2025)',
-                'cv.cert.3.title': 'AP Computer Science A – Workshop de Formação de Professores',
-                'cv.cert.3.meta': 'College Board (2023)',
-                'cv.cert.4.title': 'Liderança em Educação, Administração e Desenvolvimento',
-                'cv.cert.4.meta': 'World ORT – Programa LEAD (2021)',
-                'cv.cert.5.title': 'Workshop Presenter Badge',
-                'cv.cert.5.meta': 'AMISA (2025)',
-                'cv.cert.6.title': 'LEGO Instructors Workshop',
-                'cv.cert.6.meta': 'Positivo (2022)',
-                'cv.cert.7.title': 'AI in Education Training Workshop',
-                'cv.cert.7.meta': 'Our Lady of Mercy School Rio (2024)',
-                'cv.skills.backend.title': 'Backend e Arquitetura',
-                'cv.skills.db.title': 'Bancos de Dados e Infraestrutura',
-                'cv.skills.leadership.title': 'Liderança e Colaboração',
-                'cv.skills.leadership.tag1': 'Coordenação de equipe',
-                'cv.skills.leadership.tag2': 'Comunicação',
-                'cv.skills.leadership.tag3': 'Desenvolvimento ágil',
-                'cv.skills.leadership.tag4': 'Educação',
-                'cv.skills.leadership.tag5': 'Documentação',
-                'cv.skills.languages.title': 'Idiomas',
-                'cv.skills.lang.pt': 'Português (Nativo)',
-                'cv.skills.lang.en': 'Inglês (Fluente)',
-                'cv.skills.lang.es': 'Espanhol (Avançado)',
-                'cv.skills.lang.he': 'Hebraico (Intermediário)'
-            },
-            en: {
-                'nav.projects': 'Projects',
-                'nav.about': 'About',
-                'nav.cv': 'Resume',
-                'nav.contact': 'Contact',
-                'cv.headline': 'Backend Engineer | Production Systems | Leadership',
-                'cv.meta.location': '📍 Brazil — open to remote work',
-                'cv.section.summary': 'Summary',
-                'cv.summary': 'Backend engineer and technical leader with over a decade of experience building and maintaining production systems. Strong track record in API design, database architecture and system reliability.<br><br>Combines hands-on development with leadership: technical decisions, team coordination and knowledge transfer. Experience in education and digital projects reinforces communication and mentoring skills. Based in Rio de Janeiro, Brazil.',
-                'cv.section.education': 'Education',
-                'cv.section.exp.tech': 'Professional Experience — Technology',
-                'cv.section.exp.edu': 'Professional Experience — Education & Leadership',
-                'cv.section.certifications': 'Certifications & Professional Development',
-                'cv.section.skills': 'Skills',
-                'cv.download': 'Download PDF résumé',
-                'cv.edu.1.title': 'Extension Course in Programming',
-                'cv.edu.1.meta': 'ORT Institute of Technology (2012)',
-                'cv.edu.2.title': 'English Course',
-                'cv.edu.2.meta': 'Brasas (completed 2011)',
-                'cv.edu.3.title': 'Leadership and Education Program',
-                'cv.edu.3.meta': 'Machon leMadrichim – Jerusalem (2014) <br>Part of Shnat Hachshará Youth Program; courses in Oratory, Decision Making and Leadership Techniques.',
-                'cv.edu.4.title': 'Bachelor in Information Systems',
-                'cv.edu.4.meta': 'Federal University of the State of Rio de Janeiro - UNIRIO (2019) <br>Focus on modeling, development and management of modern Information Systems.',
-                'cv.edu.6.title': 'Postgraduate degree in Education and Psychopedagogy',
-                'cv.edu.6.meta': 'UniBF (2023)',
-                'cv.tech.1.title': 'Backend Engineer',
-                'cv.tech.1.meta': 'Meetal · 2025 – present',
-                'cv.tech.1.1': 'Develop and maintain backend services for an ERP platform in production with active clients.',
-                'cv.tech.1.2': 'Work with Python, FastAPI, Alembic, AWS Lambda, API Gateway and DynamoDB.',
-                'cv.tech.1.3': 'Responsible for database schema maintenance, implementation of new features and integration with external APIs.',
-                'cv.tech.1.4': 'Analyze system performance, identifying bottlenecks in high-usage flows and optimizing critical operations.',
-                'cv.tech.1.5': 'Participate in architectural discussions and backend evolution to support increasing system complexity.',
-                'cv.tech.2.title': 'ReUsa Project — UERJ Partnership — Technical Lead',
-                'cv.tech.2.meta': 'Rio de Janeiro State University (UERJ) · 2020 – 2023',
-                'cv.tech.2.1': 'Led the technical development of an MVP application for management and negotiation of reused water resources.',
-                'cv.tech.2.2': 'Defined the initial architecture, technology stack and development approach, prioritizing speed and flexibility.',
-                'cv.tech.2.3': 'Implemented backend services and data models while coordinating the technical team.',
-                'cv.tech.2.4': 'Ensured documentation quality and executed a structured knowledge transfer during project handover.',
-                'cv.tech.2.5': 'Work with Java, Kotlin and Google Firebase.',
-                'cv.tech.3.title': 'IT Manager / Full-stack Developer (Tech Lead)',
-                'cv.tech.3.meta': 'Vandal · 2015 – 2021',
-                'cv.tech.3.1': 'Took full ownership of backend systems and infrastructure for a platform in production with thousands of users over several years.',
-                'cv.tech.3.2': 'Designed and implemented a custom logistics and production management module, choosing a bespoke solution to support complex business rules.',
-                'cv.tech.3.3': 'Integrated external services such as payment gateways and shipping providers, handling unstable APIs and outdated documentation.',
-                'cv.tech.3.4': 'Developed integrations with hardware devices (electronic scales via serial communication) to automate operational workflows.',
-                'cv.tech.3.5': 'Managed infrastructure components including Nginx and Elasticsearch, handling production incidents and long-term system maintenance.',
-                'cv.tech.3.6': 'Acted as the primary technical reference, making architectural decisions and continuously improving system reliability.',
-                'cv.tech.3.7': 'Development with Ruby on Rails and MongoDB.',
-                'cv.tech.4.title': 'Backend Developer',
-                'cv.tech.4.meta': 'Ambiental Engenharia & Consultoria · 2012 – 2013',
-                'cv.tech.4.1': 'Developed and maintained internal backend systems.',
-                'cv.tech.4.2': 'Worked with data management, database maintenance and internal business rules.',
-                'cv.tech.5.title': 'IT Intern / Junior Developer',
-                'cv.tech.5.meta': 'Responde Aí · 2012',
-                'cv.tech.5.1': 'Contributed to the development of the educational web application.',
-                'cv.tech.5.2': 'Analyzed and helped refactor the database architecture.',
-                'cv.edulead.1.title': 'Digital Education Teacher & Researcher',
-                'cv.edulead.1.meta': 'Our Lady of Mercy School · 2022 – present',
-                'cv.edulead.1.1': 'Teach and research topics related to digital education, programming and applied technology.',
-                'cv.edulead.1.2': 'Design workshops and curricular activities focused on computational thinking and real-world applications.',
-                'cv.edulead.1.3': 'Conduct Advanced Placement (AP) Computer Science A classes as a College Board certified teacher.',
-                'cv.edulead.1.4': 'Bilingual teaching: deliver classes in English.',
-                'cv.edulead.2.title': 'Programming Teacher',
-                'cv.edulead.2.meta': 'ORT Tech Institute · 2019 – 2022',
-                'cv.edulead.2.1': 'Main teacher for Programming Languages and Advanced Programming Techniques courses.',
-                'cv.edulead.2.2': 'Mentored students in software development fundamentals, algorithms and problem-solving.',
-                'cv.edulead.3.title': 'Programming Teacher',
-                'cv.edulead.3.meta': "Andrew's School · 2022 – 2023",
-                'cv.edulead.3.1': 'Taught programming fundamentals to high school students, focusing on logic, structure and practical applications.',
-                'cv.edulead.4.title': 'Technical Integration Manager',
-                'cv.edulead.4.meta': 'ORT Tech Institute · 2020 – 2022',
-                'cv.edulead.4.1': 'Management of all information systems used by the school.',
-                'cv.edulead.4.2': 'Contact with potential new partners.',
-                'cv.edulead.5.title': 'Programming Instructor',
-                'cv.edulead.5.meta': 'CodeComet · 2020 – 2022',
-                'cv.edulead.5.1': 'Teaching programming logic to children and teenagers.',
-                'cv.edulead.6.title': 'Educator',
-                'cv.edulead.6.meta': 'Chazit Hanoar Youth Movement · 2011 – 2016',
-                'cv.edulead.6.1': 'Planning and delivery of educational activities.',
-                'cv.edulead.6.2': 'General secretary at Rio de Janeiro head office (2015).',
-                'cv.cert.1.title': 'AI Empowerment for Communities',
-                'cv.cert.1.meta': 'VJAL Institute (2024)',
-                'cv.cert.2.title': 'AI for Data Analysis',
-                'cv.cert.2.meta': 'AMISA (2025)',
-                'cv.cert.3.title': 'AP Computer Science A – Teacher Training Workshop',
-                'cv.cert.3.meta': 'College Board (2023)',
-                'cv.cert.4.title': 'Leadership in Education, Administration and Development',
-                'cv.cert.4.meta': 'World ORT – LEAD Program (2021)',
-                'cv.cert.5.title': 'Workshop Presenter Badge',
-                'cv.cert.5.meta': 'AMISA (2025)',
-                'cv.cert.6.title': 'LEGO Instructors Workshop',
-                'cv.cert.6.meta': 'Positivo (2022)',
-                'cv.cert.7.title': 'AI in Education Training Workshop',
-                'cv.cert.7.meta': 'Our Lady of Mercy School Rio (2024)',
-                'cv.skills.backend.title': 'Backend & Architecture',
-                'cv.skills.db.title': 'Databases & Infrastructure',
-                'cv.skills.leadership.title': 'Leadership & Collaboration',
-                'cv.skills.leadership.tag1': 'Team coordination',
-                'cv.skills.leadership.tag2': 'Communication',
-                'cv.skills.leadership.tag3': 'Agile development',
-                'cv.skills.leadership.tag4': 'Teaching',
-                'cv.skills.leadership.tag5': 'Documentation',
-                'cv.skills.languages.title': 'Languages',
-                'cv.skills.lang.pt': 'Portuguese (Native)',
-                'cv.skills.lang.en': 'English (Fluent)',
-                'cv.skills.lang.es': 'Spanish (Advanced)',
-                'cv.skills.lang.he': 'Hebrew (Intermediate)'
-            },
-            es: {
-                'nav.projects': 'Proyectos',
-                'nav.about': 'Sobre',
-                'nav.cv': 'Currículum',
-                'nav.contact': 'Contacto',
-                'cv.headline': 'Ingeniero de Backend | Sistemas en Producción | Liderazgo',
-                'cv.meta.location': '📍 Brasil — abierto a trabajo remoto',
-                'cv.section.summary': 'Resumen',
-                'cv.summary': 'Ingeniero de backend y líder técnico con más de una década de experiencia construyendo y manteniendo sistemas en producción. Sólido historial en diseño de APIs, arquitectura de datos y confiabilidad de sistemas.<br><br>Combina desarrollo práctico con liderazgo: decisiones técnicas, coordinación de equipos y transferencia de conocimiento. Experiencia en educación y proyectos digitales refuerza comunicación y mentoria. Con base en Río de Janeiro, Brasil.',
-                'cv.section.education': 'Formación',
-                'cv.section.exp.tech': 'Experiencia Profesional — Tecnología',
-                'cv.section.exp.edu': 'Experiencia Profesional — Educación y Liderazgo',
-                'cv.section.certifications': 'Certificaciones y Desarrollo Profesional',
-                'cv.section.skills': 'Habilidades',
-                'cv.download': 'Descargar currículum en PDF',
-                'cv.edu.1.title': 'Curso de extensión en Programación',
-                'cv.edu.1.meta': 'Instituto de Tecnología ORT (2012)',
-                'cv.edu.2.title': 'Curso de inglés',
-                'cv.edu.2.meta': 'Brasas (completado 2011)',
-                'cv.edu.3.title': 'Programa de Liderazgo y Educación',
-                'cv.edu.3.meta': 'Machon leMadrichim – Jerusalén (2014) <br>Parte del Shnat Hachshará; cursos en Oratoria, Toma de decisiones y Técnicas de Liderazgo.',
-                'cv.edu.4.title': 'Licenciatura en Sistemas de Información',
-                'cv.edu.4.meta': 'Universidad Federal del Estado de Río de Janeiro - UNIRIO (2019) <br>Enfoque en modelado, desarrollo y gestión de sistemas de información.',
-                'cv.edu.6.title': 'Posgrado en Educación y Psicopedagogía',
-                'cv.edu.6.meta': 'UniBF (2023)',
-                'cv.tech.1.title': 'Ingeniero de Backend',
-                'cv.tech.1.meta': 'Meetal · 2025 – presente',
-                'cv.tech.1.1': 'Desarrollo y mantenimiento de servicios backend para una plataforma ERP en producción con clientes activos.',
-                'cv.tech.1.2': 'Trabajo con Python, FastAPI, Alembic, AWS Lambda, API Gateway y DynamoDB.',
-                'cv.tech.1.3': 'Responsable del mantenimiento del esquema de base de datos, implementación de nuevas funcionalidades e integración con APIs externas.',
-                'cv.tech.1.4': 'Análisis de rendimiento del sistema, identificación de cuellos de botella en flujos de alto uso y optimización de operaciones críticas.',
-                'cv.tech.1.5': 'Participación en discusiones de arquitectura y evolución del backend para soportar mayor complejidad del sistema.',
-                'cv.tech.2.title': 'ReUsa — Asociación UERJ — Líder Técnico',
-                'cv.tech.2.meta': 'Universidad del Estado de Río de Janeiro (UERJ) · 2020 – 2023',
-                'cv.tech.2.1': 'Lideré el desarrollo técnico de una aplicación MVP para gestión y negociación de recursos hídricos reutilizados.',
-                'cv.tech.2.2': 'Definí la arquitectura inicial, stack tecnológico y enfoque de desarrollo, priorizando velocidad y flexibilidad.',
-                'cv.tech.2.3': 'Implementé servicios backend y modelos de datos coordinando el equipo técnico.',
-                'cv.tech.2.4': 'Aseguré la calidad de la documentación y ejecuté una transferencia de conocimiento estructurada durante la entrega del proyecto.',
-                'cv.tech.2.5': 'Trabajo con Java, Kotlin y Google Firebase.',
-                'cv.tech.3.title': 'Gerente de TI / Desarrollador Full-stack (Tech Lead)',
-                'cv.tech.3.meta': 'Vandal · 2015 – 2021',
-                'cv.tech.3.1': 'Responsabilidad integral de sistemas backend e infraestructura de una plataforma en producción con miles de usuarios durante varios años.',
-                'cv.tech.3.2': 'Diseñé e implementé un módulo customizado de logística y gestión de producción, con solución a medida para reglas de negocio complejas.',
-                'cv.tech.3.3': 'Integré servicios externos (pasarelas de pago, proveedores de envío), manejando APIs inestables y documentación desactualizada.',
-                'cv.tech.3.4': 'Desarrollé integraciones con dispositivos de hardware (básculas electrónicas vía comunicación serial) para automatizar flujos operativos.',
-                'cv.tech.3.5': 'Gestioné componentes de infraestructura (Nginx, Elasticsearch), manejo de incidentes en producción y mantenimiento a largo plazo.',
-                'cv.tech.3.6': 'Actué como referencia técnica principal: decisiones de arquitectura y mejora continua de la confiabilidad del sistema.',
-                'cv.tech.3.7': 'Desarrollo con Ruby on Rails y MongoDB.',
-                'cv.tech.4.title': 'Desarrollador Backend',
-                'cv.tech.4.meta': 'Ambiental Engenharia & Consultoria · 2012 – 2013',
-                'cv.tech.4.1': 'Desarrollé y mantuve sistemas backend internos.',
-                'cv.tech.4.2': 'Trabajé en gestión de datos, mantenimiento de base de datos y reglas de negocio internas.',
-                'cv.tech.5.title': 'Pasante de TI / Desarrollador Junior',
-                'cv.tech.5.meta': 'Responde Aí · 2012',
-                'cv.tech.5.1': 'Contribuí al desarrollo de la aplicación web educativa.',
-                'cv.tech.5.2': 'Analicé y contribuí a la refactorización de la arquitectura de la base de datos.',
-                'cv.edulead.1.title': 'Profesor e Investigador en Educación Digital',
-                'cv.edulead.1.meta': 'Our Lady of Mercy School · 2022 – presente',
-                'cv.edulead.1.1': 'Enseñanza e investigación en educación digital, programación y tecnología aplicada.',
-                'cv.edulead.1.2': 'Diseño de talleres y actividades curriculares en pensamiento computacional y aplicaciones reales.',
-                'cv.edulead.1.3': 'Imparto clases de Advanced Placement (AP) Computer Science A como profesor certificado por College Board.',
-                'cv.edulead.1.4': 'Enseñanza bilingüe: imparto clases en inglés.',
-                'cv.edulead.2.title': 'Profesor de Programación',
-                'cv.edulead.2.meta': 'Instituto ORT · 2019 – 2022',
-                'cv.edulead.2.1': 'Profesor principal de Lenguajes de Programación y Técnicas Avanzadas de Programación.',
-                'cv.edulead.2.2': 'Mentoría a estudiantes en fundamentos de desarrollo de software, algoritmos y resolución de problemas.',
-                'cv.edulead.3.title': 'Profesor de Programación',
-                'cv.edulead.3.meta': "Andrew's School · 2022 – 2023",
-                'cv.edulead.3.1': 'Enseñé fundamentos de programación a estudiantes de secundaria, con foco en lógica, estructura y aplicaciones prácticas.',
-                'cv.edulead.4.title': 'Gerente de Integración Técnica',
-                'cv.edulead.4.meta': 'Instituto ORT · 2020 – 2022',
-                'cv.edulead.4.1': 'Gestión de todos los sistemas de información utilizados por la escuela.',
-                'cv.edulead.4.2': 'Contacto con posibles nuevos socios.',
-                'cv.edulead.5.title': 'Instructor de Programación',
-                'cv.edulead.5.meta': 'CodeComet · 2020 – 2022',
-                'cv.edulead.5.1': 'Enseñanza de lógica de programación a niños y adolescentes.',
-                'cv.edulead.6.title': 'Educador',
-                'cv.edulead.6.meta': 'Movimiento Juvenil Chazit Hanoar · 2011 – 2016',
-                'cv.edulead.6.1': 'Planificación y realización de actividades educativas.',
-                'cv.edulead.6.2': 'Secretario general de la sede Rio de Janeiro (2015).',
-                'cv.cert.1.title': 'AI Empowerment for Communities',
-                'cv.cert.1.meta': 'VJAL Institute (2024)',
-                'cv.cert.2.title': 'AI for Data Analysis',
-                'cv.cert.2.meta': 'AMISA (2025)',
-                'cv.cert.3.title': 'AP Computer Science A – Taller de Formación de Profesores',
-                'cv.cert.3.meta': 'College Board (2023)',
-                'cv.cert.4.title': 'Liderazgo en Educación, Administración y Desarrollo',
-                'cv.cert.4.meta': 'World ORT – Programa LEAD (2021)',
-                'cv.cert.5.title': 'Workshop Presenter Badge',
-                'cv.cert.5.meta': 'AMISA (2025)',
-                'cv.cert.6.title': 'LEGO Instructors Workshop',
-                'cv.cert.6.meta': 'Positivo (2022)',
-                'cv.cert.7.title': 'AI in Education Training Workshop',
-                'cv.cert.7.meta': 'Our Lady of Mercy School Rio (2024)',
-                'cv.skills.backend.title': 'Backend y Arquitectura',
-                'cv.skills.db.title': 'Bases de Datos e Infraestructura',
-                'cv.skills.leadership.title': 'Liderazgo y Colaboración',
-                'cv.skills.leadership.tag1': 'Coordinación de equipos',
-                'cv.skills.leadership.tag2': 'Comunicación',
-                'cv.skills.leadership.tag3': 'Desarrollo ágil',
-                'cv.skills.leadership.tag4': 'Educación',
-                'cv.skills.leadership.tag5': 'Documentación',
-                'cv.skills.languages.title': 'Idiomas',
-                'cv.skills.lang.pt': 'Portugués (Nativo)',
-                'cv.skills.lang.en': 'Inglés (Fluido)',
-                'cv.skills.lang.es': 'Español (Avanzado)',
-                'cv.skills.lang.he': 'Hebreo (Intermedio)'
-            }
-        };
+        <div class="cv-job-company">Pantheon Inc · Curitiba, PR (Remoto)</div>
+        <div class="cv-job-desc">
+          <ul>
+            <li data-lang="pt">Desenvolvimento de APIs Python com Azure Functions para extração de dados de múltiplas fontes.</li>
+            <li data-lang="en">Python API development using Azure Functions to extract data from multiple sources.</li>
+            <li data-lang="pt">Criação e monitoramento de pacotes SSIS e pipelines ETL/ELT em ambientes produtivos.</li>
+            <li data-lang="en">SSIS packages development and monitoring; ETL/ELT pipelines in production environments.</li>
+            <li data-lang="pt">Desenvolvimento e manutenção de Views e Stored Procedures em SQL para suporte a regras de negócio complexas.</li>
+            <li data-lang="en">Views and Stored Procedures development and maintenance using SQL to support complex business rules.</li>
+            <li data-lang="pt">Arquitetura e implementação de Data Lake com zonas Landing, Bronze, Silver e Gold.</li>
+            <li data-lang="en">Design and implementation of Data Lake using landing, bronze, silver and gold zone architecture.</li>
+            <li data-lang="pt">Ingestão de dados via Azure Functions, SnowPipe e Azure Data Factory; integração via ADF, NIFI e Airflow.</li>
+            <li data-lang="en">Data ingestion via Azure Functions, SnowPipe and Azure Data Factory; integration via ADF, NIFI and Airflow.</li>
+            <li data-lang="pt">Desenvolvimento de pipelines DevOps para deploy de soluções baseadas em dados; versionamento e automação de tarefas.</li>
+            <li data-lang="en">DevOps pipeline development for data solution deployments; code versioning and task automation.</li>
+            <li data-lang="pt">Governança de dados e design de arquitetura em plataformas distribuídas.</li>
+            <li data-lang="en">Data governance and architecture design on distributed platforms.</li>
+          </ul>
+        </div>
+        <div class="cv-stack">
+          <span class="cv-stack-tag">Azure Functions</span>
+          <span class="cv-stack-tag">Azure DevOps</span>
+          <span class="cv-stack-tag">Azure Data Factory</span>
+          <span class="cv-stack-tag">Snowflake</span>
+          <span class="cv-stack-tag">Apache Airflow</span>
+          <span class="cv-stack-tag">Terraform</span>
+          <span class="cv-stack-tag">GitHub Actions</span>
+          <span class="cv-stack-tag">SQL Server</span>
+          <span class="cv-stack-tag">SSIS</span>
+          <span class="cv-stack-tag">Python</span>
+          <span class="cv-stack-tag">Power BI</span>
+          <span class="cv-stack-tag">Tableau</span>
+        </div>
+      </div>
 
-        // Initial language: saved -> browser -> EN fallback
-        function getInitialLanguage() {
-            const saved = localStorage.getItem('language');
-            if (saved) return saved;
+      <!-- Senac -->
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <div class="cv-job-title">DBA Sênior</div>
+          <div class="cv-job-period">
+            <span data-lang="pt">Jul 2020 – Out 2021</span>
+            <span data-lang="en">Jul 2020 – Oct 2021</span>
+          </div>
+        </div>
+        <div class="cv-job-company">Senac RJ · Rio de Janeiro, RJ</div>
+        <div class="cv-job-desc">
+          <ul>
+            <li data-lang="pt">Gestão técnica de toda a infraestrutura de bancos relacionais (SQL Server, Oracle) e não-relacionais (MongoDB, Redis).</li>
+            <li data-lang="en">Technical management of all relational (SQL Server, Oracle) and non-relational (MongoDB, Redis) database infrastructure.</li>
+            <li data-lang="pt">Responsável por backup físico, backup lógico e testes de restore em ambientes críticos.</li>
+            <li data-lang="en">Responsible for physical backup, logical backup and restore testing in critical environments.</li>
+            <li data-lang="pt">Liderança técnica no processo de adequação à LGPD.</li>
+            <li data-lang="en">Technical lead for LGPD (Brazil's data privacy law) compliance deployment.</li>
+            <li data-lang="pt">Arquitetura de dados com Azure Data Factory e Azure SQL; gerenciamento de containers via ACR e AKS.</li>
+            <li data-lang="en">Data architecture design with Azure Data Factory and Azure SQL; container management via ACR and AKS.</li>
+            <li data-lang="pt">Liderança DevOps para times de desenvolvimento usando Azure DevOps; automação com PowerShell, Shell Script e Python.</li>
+            <li data-lang="en">DevOps technical lead for developer teams using Azure DevOps; automation with PowerShell, Shell Script and Python.</li>
+          </ul>
+        </div>
+        <div class="cv-stack">
+          <span class="cv-stack-tag">SQL Server</span>
+          <span class="cv-stack-tag">Oracle</span>
+          <span class="cv-stack-tag">MongoDB</span>
+          <span class="cv-stack-tag">Redis</span>
+          <span class="cv-stack-tag">Azure DevOps</span>
+          <span class="cv-stack-tag">AKS</span>
+          <span class="cv-stack-tag">ACR</span>
+          <span class="cv-stack-tag">PowerShell</span>
+          <span class="cv-stack-tag">Python</span>
+          <span class="cv-stack-tag">.NET</span>
+        </div>
+      </div>
 
-            const navLang = (navigator.languages && navigator.languages[0]) || navigator.language || '';
-            const l = String(navLang).toLowerCase();
-            let detected = 'en';
-            if (l.startsWith('pt')) detected = 'pt';
-            else if (l.startsWith('es')) detected = 'es';
-            else if (l.startsWith('en')) detected = 'en';
+      <!-- CovidZero -->
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <div class="cv-job-title">Data Engineer</div>
+          <div class="cv-job-period">
+            <span data-lang="pt">Mar 2020 – Jul 2020</span>
+            <span data-lang="en">Mar 2020 – Jul 2020</span>
+          </div>
+        </div>
+        <div class="cv-job-company">CovidZero · Rio de Janeiro, RJ</div>
+        <div class="cv-job-desc">
+          <ul>
+            <li data-lang="pt">Arquitetura e design de dados baseados em AWS Lambda; desenvolvimento de Data Lake com AWS S3.</li>
+            <li data-lang="en">Data architecture and design based on AWS Lambda; Data Lake development using AWS S3 Bucket.</li>
+            <li data-lang="pt">Desenvolvimento de funções Python para ingestão de dados e criação de pipelines de dados.</li>
+            <li data-lang="en">Python functions development for data ingestion and data pipeline creation.</li>
+            <li data-lang="pt">Deploy de dados curados no Redshift Data Warehouse e mapeamento de fontes de dados.</li>
+            <li data-lang="en">Curated data deployment on Redshift Data Warehouse and data source mapping.</li>
+          </ul>
+        </div>
+        <div class="cv-stack">
+          <span class="cv-stack-tag">AWS S3</span>
+          <span class="cv-stack-tag">AWS Lambda</span>
+          <span class="cv-stack-tag">AWS Redshift</span>
+          <span class="cv-stack-tag">AWS Aurora</span>
+          <span class="cv-stack-tag">Python</span>
+          <span class="cv-stack-tag">Git</span>
+        </div>
+      </div>
 
-            localStorage.setItem('language', detected);
-            return detected;
-        }
+      <!-- TJRJ -->
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <div class="cv-job-title">DBA Sênior</div>
+          <div class="cv-job-period">
+            <span data-lang="pt">Nov 2013 – Jul 2020</span>
+            <span data-lang="en">Nov 2013 – Jul 2020</span>
+          </div>
+        </div>
+        <div class="cv-job-company">
+          <span data-lang="pt">Tribunal de Justiça do Estado do Rio de Janeiro (TJRJ)</span>
+          <span data-lang="en">Rio de Janeiro State Court of Justice (TJRJ)</span>
+        </div>
+        <div class="cv-job-desc">
+          <ul>
+            <li data-lang="pt">Administração de Oracle Real Application Cluster (RAC) com dois nós em ambiente AIX e Oracle Dataguard.</li>
+            <li data-lang="en">Oracle Real Application Cluster (RAC) administration with two nodes on AIX and Oracle Dataguard.</li>
+            <li data-lang="pt">Desenvolvimento de PL/SQL e shell scripts para automação de tarefas de banco de dados.</li>
+            <li data-lang="en">Oracle PL/SQL and shell script development to automate database tasks.</li>
+            <li data-lang="pt">Administração de Galera Cluster (MariaDB) em Linux; restore via exp/imp e RMAN.</li>
+            <li data-lang="en">Galera Cluster (MariaDB) administration on Linux; database restore via exp/imp and RMAN.</li>
+            <li data-lang="pt">Manutenção preventiva: rebuild de índices, desfragmentação, atualização de estatísticas, aplicação de patches.</li>
+            <li data-lang="en">Preventive maintenance: index rebuild, defragmentation, statistics update, patch application.</li>
+            <li data-lang="pt">Planejamento de infraestrutura, instalação, migração e upgrade de versões de banco de dados.</li>
+            <li data-lang="en">Infrastructure planning, database installation, migration and version upgrades.</li>
+          </ul>
+        </div>
+        <div class="cv-stack">
+          <span class="cv-stack-tag">Oracle 10g/11g/12c/19c</span>
+          <span class="cv-stack-tag">Oracle RAC</span>
+          <span class="cv-stack-tag">MariaDB</span>
+          <span class="cv-stack-tag">PostgreSQL</span>
+          <span class="cv-stack-tag">Shell Script</span>
+          <span class="cv-stack-tag">AIX Unix</span>
+          <span class="cv-stack-tag">Red Hat</span>
+          <span class="cv-stack-tag">CentOS</span>
+        </div>
+      </div>
 
-        let currentLanguage = getInitialLanguage();
+      <!-- MJV -->
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <div class="cv-job-title">BI Analyst</div>
+          <div class="cv-job-period">
+            <span data-lang="pt">Ago – Out 2013</span>
+            <span data-lang="en">Aug – Oct 2013</span>
+          </div>
+        </div>
+        <div class="cv-job-company">MJV Technology &amp; Innovation · Rio de Janeiro, RJ</div>
+        <div class="cv-job-desc">
+          <ul>
+            <li data-lang="pt">Desenvolvimento de ETL utilizando PL/SQL e Informatica PowerCenter; disparo e monitoramento de jobs.</li>
+            <li data-lang="en">ETL development using PL/SQL and Informatica PowerCenter; triggering and monitoring ETL jobs.</li>
+          </ul>
+        </div>
+        <div class="cv-stack">
+          <span class="cv-stack-tag">Informatica PowerCenter</span>
+          <span class="cv-stack-tag">Oracle</span>
+          <span class="cv-stack-tag">PL/SQL</span>
+        </div>
+      </div>
 
-        function changeLanguage(lang) {
-            currentLanguage = lang;
-            localStorage.setItem('language', lang);
-            applyTranslations();
-        }
+      <!-- UniNorte -->
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <div class="cv-job-title">DBA</div>
+          <div class="cv-job-period">
+            <span data-lang="pt">Jun 2012 – Jul 2013</span>
+            <span data-lang="en">Jun 2012 – Jul 2013</span>
+          </div>
+        </div>
+        <div class="cv-job-company">UniNorte – Centro Universitário do Norte · Manaus, AM</div>
+        <div class="cv-job-desc">
+          <ul>
+            <li data-lang="pt">Administração de Oracle RAC com dois nós em CentOS; Oracle Dataguard e tuning de performance.</li>
+            <li data-lang="en">Oracle RAC administration with two nodes on CentOS; Oracle Dataguard and performance tuning.</li>
+            <li data-lang="pt">Desenvolvimento de PL/SQL, scripts shell e Materialized Views para replicação de dados.</li>
+            <li data-lang="en">PL/SQL, shell scripts and Materialized Views development for data replication.</li>
+          </ul>
+        </div>
+        <div class="cv-stack">
+          <span class="cv-stack-tag">Oracle 8i/9i/10g/11g</span>
+          <span class="cv-stack-tag">Oracle RAC</span>
+          <span class="cv-stack-tag">CentOS</span>
+          <span class="cv-stack-tag">PL/SQL</span>
+        </div>
+      </div>
 
-        function applyTranslations() {
-            document.querySelectorAll('[data-translate]').forEach(element => {
-                const key = element.getAttribute('data-translate');
-                if (translations[currentLanguage] && translations[currentLanguage][key]) {
-                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                        element.value = translations[currentLanguage][key];
-                    } else {
-                        element.innerHTML = translations[currentLanguage][key];
-                    }
-                }
-            });
-            const sel = document.getElementById('languageSelect');
-            if (sel) sel.value = currentLanguage;
-        }
+      <!-- Gemalto -->
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <div class="cv-job-title">
+            <span data-lang="pt">Consultor de Suporte a Sistemas</span>
+            <span data-lang="en">Systems Support Consultant</span>
+          </div>
+          <div class="cv-job-period">
+            <span data-lang="pt">Set 2011 – Mai 2012</span>
+            <span data-lang="en">Sep 2011 – May 2012</span>
+          </div>
+        </div>
+        <div class="cv-job-company">Gemalto · Rio de Janeiro, RJ</div>
+        <div class="cv-job-desc">
+          <ul>
+            <li data-lang="pt">Suporte a plataformas de telecomunicações; desenvolvimento de shell scripts; administração de Oracle.</li>
+            <li data-lang="en">Telecom platform support; shell script development; Oracle database administration and backup.</li>
+          </ul>
+        </div>
+        <div class="cv-stack">
+          <span class="cv-stack-tag">Oracle</span>
+          <span class="cv-stack-tag">Shell Script</span>
+          <span class="cv-stack-tag">Red Hat</span>
+        </div>
+      </div>
 
-        document.addEventListener('DOMContentLoaded', function() {
-            applyTranslations();
-            var dlBtn = document.getElementById('cv-download-btn');
-            if (dlBtn) {
-                dlBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    window.print();
-                });
-            }
-            const currentPage = window.location.pathname.split('/').pop() || 'cv.html';
-            document.querySelectorAll('nav a').forEach(link => {
-                if (link.getAttribute('href') === currentPage) link.classList.add('active');
-            });
-        });
-    </script>
+      <!-- Globo.com -->
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <div class="cv-job-title">
+            <span data-lang="pt">Analista de Sistemas</span>
+            <span data-lang="en">System Analyst</span>
+          </div>
+          <div class="cv-job-period">
+            <span data-lang="pt">Jun 2009 – Out 2011</span>
+            <span data-lang="en">Jun 2009 – Oct 2011</span>
+          </div>
+        </div>
+        <div class="cv-job-company">Globo.com · Rio de Janeiro, RJ</div>
+        <div class="cv-job-desc">
+          <ul>
+            <li data-lang="pt">Desenvolvimento de scripts Python e Shell; suporte a plataformas; monitoramento de ambientes com Nginx.</li>
+            <li data-lang="en">Python and shell script development; platform support; environment monitoring with Nginx.</li>
+          </ul>
+        </div>
+        <div class="cv-stack">
+          <span class="cv-stack-tag">Python</span>
+          <span class="cv-stack-tag">Oracle</span>
+          <span class="cv-stack-tag">MySQL</span>
+          <span class="cv-stack-tag">Nginx</span>
+          <span class="cv-stack-tag">CentOS</span>
+        </div>
+      </div>
+
+      <!-- Ministério -->
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <div class="cv-job-title">
+            <span data-lang="pt">Analista de Suporte Técnico</span>
+            <span data-lang="en">Technical Support Analyst</span>
+          </div>
+          <div class="cv-job-period">
+            <span data-lang="pt">Ago 2008 – Jun 2009</span>
+            <span data-lang="en">Aug 2008 – Jun 2009</span>
+          </div>
+        </div>
+        <div class="cv-job-company">
+          <span data-lang="pt">Ministério da Agricultura · São Paulo, SP</span>
+          <span data-lang="en">Ministry of Agriculture · São Paulo, SP</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── EDUCATION ── -->
+    <section class="cv-section">
+      <div class="section-label" data-lang="pt">Formação Acadêmica</div>
+      <div class="section-label" data-lang="en">Education</div>
+
+      <div class="cv-edu-item">
+        <div class="cv-edu-degree">
+          <span data-lang="pt">MBA Executivo em Business Intelligence</span>
+          <span data-lang="en">Executive MBA in Business Intelligence</span>
+        </div>
+        <div class="cv-edu-meta">
+          <span>Instituto de Gestão e Tecnologia da Informação</span> · 2021 – 2022
+        </div>
+      </div>
+
+      <div class="cv-edu-item">
+        <div class="cv-edu-degree">
+          <span data-lang="pt">Pós-Graduação Executiva em Big Data Analytics</span>
+          <span data-lang="en">Executive Postgraduate in Big Data Analytics</span>
+        </div>
+        <div class="cv-edu-meta">
+          <span>Fundação Getulio Vargas (FGV)</span> · 2018 – 2019
+        </div>
+      </div>
+
+      <div class="cv-edu-item">
+        <div class="cv-edu-degree">
+          <span data-lang="pt">Bacharelado em Tecnologia — Gestão de Processos</span>
+          <span data-lang="en">Bachelor of Technology — Management Process</span>
+        </div>
+        <div class="cv-edu-meta">
+          <span>Fundação Getulio Vargas (FGV)</span> · 2012 – 2014
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CERTIFICATIONS ── -->
+    <section class="cv-section">
+      <div class="section-label" data-lang="pt">Certificações</div>
+      <div class="section-label" data-lang="en">Certifications</div>
+
+      <div class="cv-cert-item">
+        <div class="cv-cert-badge">❄</div>
+        <div>
+          <div class="cv-cert-title">Hands On Essentials – Data Warehouse</div>
+          <div class="cv-cert-issuer">Snowflake</div>
+        </div>
+      </div>
+      <div class="cv-cert-item">
+        <div class="cv-cert-badge">❄</div>
+        <div>
+          <div class="cv-cert-title">Hands On Essentials – Data Lake</div>
+          <div class="cv-cert-issuer">Snowflake</div>
+        </div>
+      </div>
+      <div class="cv-cert-item">
+        <div class="cv-cert-badge">🌊</div>
+        <div>
+          <div class="cv-cert-title">Astronomer Certification for Apache Airflow Fundamentals</div>
+          <div class="cv-cert-issuer">Astronomer</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SKILLS ── -->
+    <section class="cv-section">
+      <div class="section-label" data-lang="pt">Stack Tecnológica</div>
+      <div class="section-label" data-lang="en">Tech Stack</div>
+
+      <div class="skills-grid">
+        <div>
+          <div class="skills-group-title">Cloud & Plataformas</div>
+          <div class="skills-tags">
+            <span class="skill-tag">Azure</span>
+            <span class="skill-tag">AWS</span>
+            <span class="skill-tag">Snowflake</span>
+            <span class="skill-tag">Azure Data Factory</span>
+            <span class="skill-tag">Azure Databricks</span>
+            <span class="skill-tag">Azure Functions</span>
+            <span class="skill-tag">AWS Lambda</span>
+            <span class="skill-tag">AWS Redshift</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="skills-group-title">Pipelines & Orquestração</div>
+          <div class="skills-tags">
+            <span class="skill-tag">Apache Airflow</span>
+            <span class="skill-tag">Apache NiFi</span>
+            <span class="skill-tag">SSIS</span>
+            <span class="skill-tag">ETL / ELT</span>
+            <span class="skill-tag">SnowPipe</span>
+            <span class="skill-tag">Terraform</span>
+            <span class="skill-tag">GitHub Actions</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="skills-group-title">Bancos de Dados</div>
+          <div class="skills-tags">
+            <span class="skill-tag">Oracle</span>
+            <span class="skill-tag">SQL Server</span>
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">MongoDB</span>
+            <span class="skill-tag">MariaDB</span>
+            <span class="skill-tag">Redis</span>
+            <span class="skill-tag">DynamoDB</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="skills-group-title">Linguagens & DevOps</div>
+          <div class="skills-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">PL/SQL</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">Shell Script</span>
+            <span class="skill-tag">PowerShell</span>
+            <span class="skill-tag">Azure DevOps</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Git</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="skills-group-title">BI & Visualização</div>
+          <div class="skills-tags">
+            <span class="skill-tag">Power BI</span>
+            <span class="skill-tag">Tableau</span>
+            <span class="skill-tag">Informatica PowerCenter</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="skills-group-title">
+            <span data-lang="pt">Idiomas</span>
+            <span data-lang="en">Languages</span>
+          </div>
+          <div class="skills-tags">
+            <span class="skill-tag">
+              <span data-lang="pt">Português (Nativo)</span>
+              <span data-lang="en">Portuguese (Native)</span>
+            </span>
+            <span class="skill-tag">
+              <span data-lang="pt">Inglês (Avançado)</span>
+              <span data-lang="en">English (Advanced)</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /wrapper -->
+
+  <script>
+    function setLang(lang) {
+      document.getElementById('body-root').className = 'lang-' + lang;
+      document.getElementById('btn-pt').classList.toggle('active', lang === 'pt');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    }
+  </script>
 </body>
 </html>
