@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Júlio Dantas | Data Engineer</title>
+  <title>Júlio Dantas | Senior Data Engineer</title>
+  <meta name="description" content="Júlio Dantas, Senior Data Engineer: Azure, Snowflake, dbt, Python, SQL, Airflow. 15+ years in data, based in Rio de Janeiro, Brazil." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
@@ -426,12 +427,35 @@
     span[data-lang] { display: inline; }
     .lang-pt span[data-lang="en"],
     .lang-en span[data-lang="pt"] { display: none; }
+
+    /* ─── DOWNLOAD BUTTON ─── */
+    .cv-download {
+      margin-right: auto;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 4px;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      background: var(--tag-bg);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .cv-download:hover { background: rgba(0,212,255,0.15); }
+    .cv-job-desc p { margin-bottom: 8px; }
   </style>
 </head>
 <body class="lang-pt" id="body-root">
 
   <!-- LANG BAR -->
   <div class="lang-bar">
+    <a class="cv-download" href="cv-julio-dantas.pdf" download>
+      <span data-lang="pt">Baixar CV (PDF)</span>
+      <span data-lang="en">Download CV (PDF)</span>
+    </a>
     <button class="lang-btn active" id="btn-pt" onclick="setLang('pt')">PT</button>
     <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
   </div>
@@ -446,8 +470,8 @@
       </p>
       <h1 class="cv-name">Júlio <span>Dantas</span></h1>
       <p class="cv-title">
-        <span data-lang="pt">Engenheiro de Dados</span>
-        <span data-lang="en">Data Engineer</span>
+        <span data-lang="pt">Engenheiro de Dados Sênior · Azure · Snowflake · dbt · Python · SQL · Airflow</span>
+        <span data-lang="en">Senior Data Engineer · Azure · Snowflake · dbt · Python · SQL · Airflow</span>
       </p>
       <div class="cv-contacts">
         <a class="cv-contact" href="mailto:julio.dantas@yahoo.com.br">
@@ -456,7 +480,7 @@
         </a>
         <a class="cv-contact" href="tel:+5521982270928">
           <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.06 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          (21) 98227-0928
+          +55 (21) 98227-0928
         </a>
         <a class="cv-contact" href="https://linkedin.com/in/júlio-dantas-04503b4a" target="_blank" rel="noopener">
           <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
@@ -468,7 +492,8 @@
         </a>
         <span class="cv-contact">
           <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Rio de Janeiro, Brasil
+          <span data-lang="pt">Rio de Janeiro, Brasil (GMT-3)</span>
+          <span data-lang="en">Rio de Janeiro, Brazil (GMT-3)</span>
         </span>
       </div>
     </header>
@@ -478,18 +503,18 @@
       <div class="section-label" data-lang="pt">Resumo</div>
       <div class="section-label" data-lang="en">Summary</div>
       <p class="cv-summary" data-lang="pt">
-        Engenheiro de Dados com mais de 15 anos de experiência em tecnologia — construindo, evoluindo e liderando plataformas de dados de alta complexidade em setores como judiciário, educação, saúde e tecnologia. Minha trajetória abrange desde a administração de bancos de dados Oracle RAC em ambientes de missão crítica até a implementação de plataformas modernas na nuvem com Azure, Snowflake e dbt, refletindo uma evolução técnica consistente e orientada ao impacto real nos negócios.
+        Engenheiro de dados sênior na Pantheon, onde cuido da plataforma de dados em Azure e Snowflake. Trabalho com dados há mais de 15 anos e de forma remota desde 2021.
         <br><br>
-        Especializado em projetar soluções data-driven de ponta a ponta — da ingestão e modelagem até a entrega de insights estratégicos — com domínio profundo em arquiteturas de Data Lake (medallion), pipelines ETL/ELT, orquestração com Apache Airflow, transformação com dbt e governança de dados em escala. Tenho forte atuação em DataOps e cultura DevOps, com experiência em CI/CD, Terraform, GitHub Actions e Azure DevOps para automação e entrega contínua de soluções baseadas em dados.
+        No dia a dia, construo pipelines de ingestão e ETL/ELT com Python (Azure Functions), Azure Data Factory, Snowpipe, Airflow e NiFi, e faço as transformações com dbt no Snowflake. Também cuido das camadas do lakehouse (landing, bronze, silver e gold), do CI/CD com Azure DevOps e GitHub Actions e da infraestrutura com Terraform, além de governança de dados, LGPD e tuning de performance.
         <br><br>
-        Profissional orientado a resultados, com capacidade comprovada de traduzir complexidade técnica em valor estratégico — acelerando a tomada de decisão, reduzindo latência de dados e elevando a maturidade analítica das organizações. Busco continuamente novas tecnologias e metodologias que ampliem o impacto dos times e posicionem os dados como ativo central do negócio.
+        Antes da engenharia de dados, passei cerca de 10 anos do lado de banco de dados e infraestrutura, como DBA no Tribunal de Justiça do RJ e no Senac RJ, com Oracle RAC, Data Guard, SQL Server, PostgreSQL, MariaDB, Linux e AIX. Uso muito dessa experiência até hoje, principalmente em tuning de performance e modelagem de dados.
       </p>
       <p class="cv-summary" data-lang="en">
-        Data Engineer with 15+ years of experience in technology — building, evolving and leading high-complexity data platforms across industries such as judiciary, education, healthcare and technology. My career spans from Oracle RAC database administration in mission-critical environments to implementing modern cloud platforms with Azure, Snowflake and dbt, reflecting a consistent technical evolution driven by real business impact.
+        Senior data engineer at Pantheon, where I take care of the data platform on Azure and Snowflake. I've worked with data for more than 15 years, and remotely since 2021.
         <br><br>
-        Specialized in designing end-to-end data-driven solutions — from ingestion and modeling through to delivering strategic insights — with deep expertise in Data Lake architectures (medallion), ETL/ELT pipelines, orchestration with Apache Airflow, transformation with dbt and data governance at scale. Strong background in DataOps and DevOps culture, with hands-on experience in CI/CD, Terraform, GitHub Actions and Azure DevOps for continuous automation and delivery of data solutions.
+        Day to day I build ingestion and ETL/ELT pipelines with Python (Azure Functions), Azure Data Factory, Snowpipe, Airflow and NiFi, and handle transformations with dbt on Snowflake. I also look after the lakehouse layers (landing, bronze, silver, gold), CI/CD with Azure DevOps and GitHub Actions, infrastructure with Terraform, and data governance, LGPD and performance tuning.
         <br><br>
-        Results-driven professional with a proven ability to translate technical complexity into strategic value — accelerating decision-making, reducing data latency and elevating the analytical maturity of organizations. I continuously seek new technologies and methodologies that amplify team impact and position data as a central business asset.
+        Before data engineering I spent about 10 years on the database and infrastructure side, as a DBA at the Rio de Janeiro State Court (TJRJ) and at Senac RJ: Oracle RAC, Data Guard, SQL Server, PostgreSQL, MariaDB, Linux and AIX. I still use a lot of that experience, mainly for performance tuning and data modeling.
       </p>
     </section>
 
@@ -501,44 +526,56 @@
       <!-- Pantheon -->
       <div class="cv-job">
         <div class="cv-job-header">
-          <div class="cv-job-title">Sr. Data Engineer</div>
+          <div class="cv-job-title">
+            <span data-lang="pt">Engenheiro de Dados Sênior</span>
+            <span data-lang="en">Senior Data Engineer</span>
+          </div>
           <div class="cv-job-period">
             <span data-lang="pt">Out 2021 – Presente</span>
             <span data-lang="en">Oct 2021 – Present</span>
           </div>
         </div>
-        <div class="cv-job-company">Pantheon Inc · Curitiba, PR (Remoto)</div>
+        <div class="cv-job-company">
+          <span data-lang="pt">Pantheon Inc · Remoto</span>
+          <span data-lang="en">Pantheon Inc · Remote</span>
+        </div>
         <div class="cv-job-desc">
+          <p data-lang="pt">Cuido da plataforma de dados da empresa em Azure e Snowflake, das fontes até os dados usados pelas áreas de negócio e pela liderança.</p>
+          <p data-lang="en">I take care of the company's data platform on Azure and Snowflake, from the source systems to the data used by business teams and leadership.</p>
           <ul>
-            <li data-lang="pt">Arquitetou e implementou plataforma de dados moderna end-to-end no Azure e Snowflake, habilitando decisões estratégicas em tempo real para múltiplos clientes da empresa.</li>
-            <li data-lang="en">Architected and implemented a modern end-to-end data platform on Azure and Snowflake, enabling real-time strategic decision-making for multiple enterprise clients.</li>
-            <li data-lang="pt">Projetou Data Lake multicamadas (Landing → Bronze → Silver → Gold) com ingestão automatizada via Azure Functions, SnowPipe e ADF — reduzindo latência de dados críticos e garantindo rastreabilidade total.</li>
-            <li data-lang="en">Designed a multi-zone Data Lake (Landing → Bronze → Silver → Gold) with automated ingestion via Azure Functions, SnowPipe and ADF — reducing critical data latency and ensuring full traceability.</li>
-            <li data-lang="pt">Liderou a adoção de dbt (data build tool) para modelagem e transformação de dados no Snowflake, introduzindo testes automatizados, documentação viva e controle de versão das transformações — elevando a qualidade e a confiabilidade dos dados entregues às áreas de negócio.</li>
-            <li data-lang="en">Led the adoption of dbt (data build tool) for data modeling and transformation on Snowflake, introducing automated tests, living documentation and version-controlled transformations — significantly improving data quality and reliability for business stakeholders.</li>
-            <li data-lang="pt">Desenvolveu APIs Python com Azure Functions para extração de dados de múltiplas fontes heterogêneas, integrando pipelines via ADF, Apache NiFi e Airflow com orquestração robusta e monitoramento contínuo.</li>
-            <li data-lang="en">Built Python APIs with Azure Functions to extract data from multiple heterogeneous sources, integrating pipelines via ADF, Apache NiFi and Airflow with robust orchestration and continuous monitoring.</li>
-            <li data-lang="pt">Implementou pipelines CI/CD no Azure DevOps e GitHub Actions com Terraform para infraestrutura como código, acelerando deploys e eliminando configurações manuais em ambientes de dados.</li>
-            <li data-lang="en">Implemented CI/CD pipelines in Azure DevOps and GitHub Actions with Terraform for infrastructure-as-code, accelerating deployments and eliminating manual configuration across data environments.</li>
-            <li data-lang="pt">Estabeleceu práticas de Data Governance e DataOps em plataformas distribuídas, garantindo conformidade, qualidade e segurança dos dados em escala.</li>
-            <li data-lang="en">Established Data Governance and DataOps practices on distributed platforms, ensuring compliance, data quality and security at scale.</li>
-            <li data-lang="pt">Desenvolveu e otimizou Views, Stored Procedures e pacotes SSIS/ETL para suporte a regras de negócio críticas, com foco em performance e manutenibilidade.</li>
-            <li data-lang="en">Developed and optimized Views, Stored Procedures and SSIS/ETL packages to support critical business rules, focusing on performance and maintainability.</li>
+            <li data-lang="pt">Desenhei a arquitetura lakehouse (landing, bronze, silver e gold) em Azure Blob Storage e Snowflake</li>
+            <li data-lang="en">Designed the lakehouse architecture (landing, bronze, silver and gold) on Azure Blob Storage and Snowflake</li>
+            <li data-lang="pt">Construí a camada de ingestão com APIs Python em Azure Functions, Snowpipe e Azure Data Factory</li>
+            <li data-lang="en">Built the ingestion layer with Python APIs on Azure Functions, Snowpipe and Azure Data Factory</li>
+            <li data-lang="pt">Transformações e modelos de dados com dbt no Snowflake</li>
+            <li data-lang="en">Data transformations and models with dbt on Snowflake</li>
+            <li data-lang="pt">Orquestração de pipelines com Airflow, Azure Data Factory e NiFi (arquitetura lambda)</li>
+            <li data-lang="en">Pipeline orchestration with Airflow, Azure Data Factory and NiFi (lambda architecture)</li>
+            <li data-lang="pt">Refatoração de views, stored procedures e pacotes SSIS para melhorar performance</li>
+            <li data-lang="en">Refactoring SQL views, stored procedures and SSIS packages to improve performance</li>
+            <li data-lang="pt">CI/CD para projetos de dados com Azure DevOps e GitHub Actions; infraestrutura como código com Terraform</li>
+            <li data-lang="en">CI/CD for data projects with Azure DevOps and GitHub Actions; infrastructure as code with Terraform</li>
+            <li data-lang="pt">Governança de dados e datasets curados para Power BI e Tableau</li>
+            <li data-lang="en">Data governance and curated datasets for Power BI and Tableau</li>
           </ul>
         </div>
         <div class="cv-stack">
-          <span class="cv-stack-tag">Azure Functions</span>
-          <span class="cv-stack-tag">Azure DevOps</span>
-          <span class="cv-stack-tag">Azure Data Factory</span>
-          <span class="cv-stack-tag">Snowflake</span>
+          <span class="cv-stack-tag">Python</span>
+          <span class="cv-stack-tag">SQL</span>
           <span class="cv-stack-tag">dbt</span>
+          <span class="cv-stack-tag">Snowflake</span>
+          <span class="cv-stack-tag">Azure Data Factory</span>
+          <span class="cv-stack-tag">Azure Functions</span>
+          <span class="cv-stack-tag">Azure SQL Database</span>
+          <span class="cv-stack-tag">Azure Blob Storage</span>
+          <span class="cv-stack-tag">Azure Key Vault</span>
           <span class="cv-stack-tag">Apache Airflow</span>
           <span class="cv-stack-tag">Apache NiFi</span>
-          <span class="cv-stack-tag">Terraform</span>
-          <span class="cv-stack-tag">GitHub Actions</span>
-          <span class="cv-stack-tag">SQL Server</span>
           <span class="cv-stack-tag">SSIS</span>
-          <span class="cv-stack-tag">Python</span>
+          <span class="cv-stack-tag">SQL Server</span>
+          <span class="cv-stack-tag">Terraform</span>
+          <span class="cv-stack-tag">Azure DevOps</span>
+          <span class="cv-stack-tag">GitHub Actions</span>
           <span class="cv-stack-tag">Power BI</span>
           <span class="cv-stack-tag">Tableau</span>
         </div>
@@ -547,25 +584,35 @@
       <!-- Senac -->
       <div class="cv-job">
         <div class="cv-job-header">
-          <div class="cv-job-title">DBA Sênior</div>
+          <div class="cv-job-title">
+            <span data-lang="pt">DBA Sênior</span>
+            <span data-lang="en">Senior Database Administrator</span>
+          </div>
           <div class="cv-job-period">
             <span data-lang="pt">Jul 2020 – Out 2021</span>
             <span data-lang="en">Jul 2020 – Oct 2021</span>
           </div>
         </div>
-        <div class="cv-job-company">Senac RJ · Rio de Janeiro, RJ</div>
+        <div class="cv-job-company">
+          <span data-lang="pt">Senac RJ · Rio de Janeiro, RJ · Presencial</span>
+          <span data-lang="en">Senac RJ · Rio de Janeiro, Brazil · On-site</span>
+        </div>
         <div class="cv-job-desc">
+          <p data-lang="pt">Responsável técnico por banco de dados e infraestrutura (SQL Server, Oracle, MongoDB e Redis) e pela primeira arquitetura de dados no Azure.</p>
+          <p data-lang="en">Technical lead for database and infrastructure (SQL Server, Oracle, MongoDB and Redis), and for the first data architecture on Azure.</p>
           <ul>
-            <li data-lang="pt">Assumiu a gestão técnica completa de infraestrutura crítica de banco de dados institucional — cobrindo ambientes relacionais (SQL Server, Oracle) e NoSQL (MongoDB, Redis) — garantindo alta disponibilidade e zero perda de dados.</li>
-            <li data-lang="en">Took full technical ownership of the institution's critical database infrastructure — spanning relational (SQL Server, Oracle) and NoSQL (MongoDB, Redis) environments — ensuring high availability and zero data loss.</li>
-            <li data-lang="pt">Liderou tecnicamente o processo de adequação à LGPD, mapeando fluxos de dados sensíveis, implementando controles de acesso e estabelecendo políticas de retenção e anonimização em toda a organização.</li>
-            <li data-lang="en">Technically led the LGPD compliance initiative, mapping sensitive data flows, implementing access controls and establishing retention and anonymization policies across the organization.</li>
-            <li data-lang="pt">Projetou e implementou arquitetura de dados no Azure (ADF + Azure SQL), modernizando a plataforma legada e reduzindo esforço manual em processos de integração.</li>
-            <li data-lang="en">Designed and implemented a cloud data architecture on Azure (ADF + Azure SQL), modernizing the legacy platform and significantly reducing manual effort in integration workflows.</li>
-            <li data-lang="pt">Introduziu cultura DevOps ao time de desenvolvimento via Azure DevOps, automatizando pipelines de entrega e operações de banco de dados com PowerShell, Shell Script e Python.</li>
-            <li data-lang="en">Introduced DevOps culture to the development team via Azure DevOps, automating delivery pipelines and database operations with PowerShell, Shell Script and Python.</li>
-            <li data-lang="pt">Gerenciou containerização de aplicações com Azure Container Registry (ACR) e orquestração via AKS, aumentando a resiliência e escalabilidade dos serviços de dados.</li>
-            <li data-lang="en">Managed application containerization with Azure Container Registry (ACR) and orchestration via AKS, boosting resilience and scalability of data services.</li>
+            <li data-lang="pt">Desenhei a arquitetura de dados com Azure Data Factory e Azure SQL</li>
+            <li data-lang="en">Designed the data architecture with Azure Data Factory and Azure SQL</li>
+            <li data-lang="pt">Conduzi a parte técnica da adequação à LGPD</li>
+            <li data-lang="en">Led the technical side of the LGPD (Brazilian data protection law) rollout</li>
+            <li data-lang="pt">Referência de DevOps para o time de desenvolvimento: pipelines no Azure DevOps, imagens no Azure Container Registry e deploys no AKS</li>
+            <li data-lang="en">DevOps lead for the development team: Azure DevOps pipelines, images in Azure Container Registry, deployments on AKS</li>
+            <li data-lang="pt">Backups, testes de restore e replicação para recuperação de desastres</li>
+            <li data-lang="en">Backups, restore tests and replication for disaster recovery</li>
+            <li data-lang="pt">Automação com PowerShell, shell script e Python</li>
+            <li data-lang="en">Automation with PowerShell, shell scripts and Python</li>
+            <li data-lang="pt">Tuning de queries e índices, patches, integração de dados e migrações de banco</li>
+            <li data-lang="en">Query and index tuning, patching, data integration and database migrations</li>
           </ul>
         </div>
         <div class="cv-stack">
@@ -573,9 +620,13 @@
           <span class="cv-stack-tag">Oracle</span>
           <span class="cv-stack-tag">MongoDB</span>
           <span class="cv-stack-tag">Redis</span>
+          <span class="cv-stack-tag">Azure Data Factory</span>
+          <span class="cv-stack-tag">Azure SQL</span>
           <span class="cv-stack-tag">Azure DevOps</span>
-          <span class="cv-stack-tag">AKS</span>
           <span class="cv-stack-tag">ACR</span>
+          <span class="cv-stack-tag">AKS</span>
+          <span class="cv-stack-tag">Azure Key Vault</span>
+          <span class="cv-stack-tag">Azure Databricks</span>
           <span class="cv-stack-tag">PowerShell</span>
           <span class="cv-stack-tag">Python</span>
           <span class="cv-stack-tag">.NET</span>
@@ -585,29 +636,37 @@
       <!-- CovidZero -->
       <div class="cv-job">
         <div class="cv-job-header">
-          <div class="cv-job-title">Data Engineer</div>
+          <div class="cv-job-title">
+            <span data-lang="pt">Engenheiro de Dados Sênior</span>
+            <span data-lang="en">Senior Data Engineer</span>
+          </div>
           <div class="cv-job-period">
             <span data-lang="pt">Mar 2020 – Jul 2020</span>
             <span data-lang="en">Mar 2020 – Jul 2020</span>
           </div>
         </div>
-        <div class="cv-job-company">CovidZero · Rio de Janeiro, RJ</div>
+        <div class="cv-job-company">
+          <span data-lang="pt">CovidZero · Autônomo · Remoto</span>
+          <span data-lang="en">CovidZero · Self-employed · Remote</span>
+        </div>
         <div class="cv-job-desc">
+          <p data-lang="pt">Engenharia de dados para o CovidZero, um projeto de dados sobre COVID-19, construído na AWS.</p>
+          <p data-lang="en">Data engineering for CovidZero, a COVID-19 data project, built on AWS.</p>
           <ul>
-            <li data-lang="pt">Projetou e implementou do zero uma arquitetura de dados serverless na AWS (Lambda + S3 + Redshift) para suportar a plataforma de monitoramento epidemiológico em contexto de alta urgência.</li>
-            <li data-lang="en">Designed and built from scratch a serverless data architecture on AWS (Lambda + S3 + Redshift) to support an epidemiological monitoring platform under high-urgency conditions.</li>
-            <li data-lang="pt">Desenvolveu Data Lake completo no AWS S3 com pipelines Python de ingestão de múltiplas fontes de dados públicos e privados relacionados à pandemia de Covid-19.</li>
-            <li data-lang="en">Built a full Data Lake on AWS S3 with Python ingestion pipelines from multiple public and private Covid-19 pandemic data sources.</li>
-            <li data-lang="pt">Entregou dados curados e prontos para análise no Amazon Redshift, viabilizando relatórios estratégicos utilizados por equipes de saúde e gestão.</li>
-            <li data-lang="en">Delivered curated, analysis-ready data to Amazon Redshift, enabling strategic reports used by healthcare and management teams.</li>
+            <li data-lang="pt">Desenhei uma arquitetura serverless com AWS Lambda</li>
+            <li data-lang="en">Designed a serverless architecture with AWS Lambda</li>
+            <li data-lang="pt">Construí o data lake no S3 e as funções Python de ingestão</li>
+            <li data-lang="en">Built the data lake on S3 and Python functions for data ingestion</li>
+            <li data-lang="pt">Mapeei as fontes de dados e construí os pipelines que carregavam os dados curados no Redshift</li>
+            <li data-lang="en">Mapped the data sources and built the pipelines that loaded curated data into Redshift</li>
           </ul>
         </div>
         <div class="cv-stack">
-          <span class="cv-stack-tag">AWS S3</span>
-          <span class="cv-stack-tag">AWS Lambda</span>
-          <span class="cv-stack-tag">AWS Redshift</span>
-          <span class="cv-stack-tag">AWS Aurora</span>
           <span class="cv-stack-tag">Python</span>
+          <span class="cv-stack-tag">AWS Lambda</span>
+          <span class="cv-stack-tag">S3</span>
+          <span class="cv-stack-tag">Redshift</span>
+          <span class="cv-stack-tag">Aurora</span>
           <span class="cv-stack-tag">Git</span>
         </div>
       </div>
@@ -615,7 +674,10 @@
       <!-- TJRJ -->
       <div class="cv-job">
         <div class="cv-job-header">
-          <div class="cv-job-title">DBA Sênior</div>
+          <div class="cv-job-title">
+            <span data-lang="pt">DBA Sênior</span>
+            <span data-lang="en">Senior Database Administrator</span>
+          </div>
           <div class="cv-job-period">
             <span data-lang="pt">Nov 2013 – Jul 2020</span>
             <span data-lang="en">Nov 2013 – Jul 2020</span>
@@ -623,29 +685,37 @@
         </div>
         <div class="cv-job-company">
           <span data-lang="pt">Tribunal de Justiça do Estado do Rio de Janeiro (TJRJ)</span>
-          <span data-lang="en">Rio de Janeiro State Court of Justice (TJRJ)</span>
+          <span data-lang="en">Rio de Janeiro State Court (TJRJ)</span>
         </div>
         <div class="cv-job-desc">
+          <p data-lang="pt">DBA sênior responsável pela infraestrutura de banco de dados do tribunal.</p>
+          <p data-lang="en">Senior DBA responsible for the court's database infrastructure.</p>
           <ul>
-            <li data-lang="pt">Administrou ambiente Oracle RAC de missão crítica com dois nós em AIX — garantindo alta disponibilidade e continuidade operacional para o sistema judiciário do Estado do Rio de Janeiro.</li>
-            <li data-lang="en">Administered mission-critical Oracle RAC environment with two nodes on AIX — ensuring high availability and operational continuity for Rio de Janeiro's state judiciary system.</li>
-            <li data-lang="pt">Implementou e manteve Oracle Dataguard para recuperação de desastres, além de estratégias de restore via exp/imp e RMAN, protegendo dados sensíveis e sigilosos do poder judiciário.</li>
-            <li data-lang="en">Implemented and maintained Oracle Dataguard for disaster recovery, alongside restore strategies via exp/imp and RMAN, safeguarding sensitive judiciary data.</li>
-            <li data-lang="pt">Desenvolveu soluções em PL/SQL e shell scripts para automação de rotinas críticas de banco de dados, reduzindo esforço operacional e eliminando falhas manuais.</li>
-            <li data-lang="en">Developed PL/SQL and shell script solutions to automate critical database routines, reducing operational overhead and eliminating manual errors.</li>
-            <li data-lang="pt">Gerenciou cluster Galera (MariaDB) em Linux, além de executar planos de manutenção preventiva: rebuild de índices, desfragmentação, atualização de estatísticas e aplicação de patches de segurança.</li>
-            <li data-lang="en">Managed Galera Cluster (MariaDB) on Linux, executing preventive maintenance plans: index rebuild, defragmentation, statistics update and security patch application.</li>
-            <li data-lang="pt">Planejou e executou migrações e upgrades de versão de banco de dados em ambiente crítico, sem impacto para os sistemas em produção.</li>
-            <li data-lang="en">Planned and executed database migrations and version upgrades in a critical environment with zero production impact.</li>
+            <li data-lang="pt">Administrei um Oracle RAC de dois nós e Oracle Data Guard em AIX</li>
+            <li data-lang="en">Administered a two-node Oracle RAC and Oracle Data Guard on AIX</li>
+            <li data-lang="pt">Gerenciei um MariaDB Galera Cluster em Linux</li>
+            <li data-lang="en">Managed a MariaDB Galera Cluster on Linux</li>
+            <li data-lang="pt">Planejei e executei instalações, migrações e upgrades de versão (Oracle 10g a 19c)</li>
+            <li data-lang="en">Planned and ran database installations, migrations and version upgrades (Oracle 10g through 19c)</li>
+            <li data-lang="pt">Automação com PL/SQL e shell script, e materialized views para replicação de dados</li>
+            <li data-lang="en">Wrote PL/SQL and shell scripts to automate database work, and materialized views for data replication</li>
+            <li data-lang="pt">Tuning e manutenção preventiva: rebuild de índices, estatísticas, desfragmentação e patches</li>
+            <li data-lang="en">Performance tuning and preventive maintenance: index rebuilds, statistics, defragmentation and patching</li>
+            <li data-lang="pt">Backup e recuperação com RMAN e exp/imp</li>
+            <li data-lang="en">Backup and recovery with RMAN and exp/imp</li>
+            <li data-lang="pt">Planejamento de infraestrutura e apoio aos times de desenvolvimento em deploys do lado do banco</li>
+            <li data-lang="en">Infrastructure planning and support for development teams on database-side deployments</li>
           </ul>
         </div>
         <div class="cv-stack">
-          <span class="cv-stack-tag">Oracle 10g/11g/12c/19c</span>
+          <span class="cv-stack-tag">Oracle 10g–19c</span>
           <span class="cv-stack-tag">Oracle RAC</span>
+          <span class="cv-stack-tag">Data Guard</span>
+          <span class="cv-stack-tag">RMAN</span>
+          <span class="cv-stack-tag">PL/SQL</span>
           <span class="cv-stack-tag">MariaDB</span>
           <span class="cv-stack-tag">PostgreSQL</span>
-          <span class="cv-stack-tag">Shell Script</span>
-          <span class="cv-stack-tag">AIX Unix</span>
+          <span class="cv-stack-tag">AIX</span>
           <span class="cv-stack-tag">Red Hat</span>
           <span class="cv-stack-tag">CentOS</span>
         </div>
@@ -654,18 +724,19 @@
       <!-- MJV -->
       <div class="cv-job">
         <div class="cv-job-header">
-          <div class="cv-job-title">BI Analyst</div>
+          <div class="cv-job-title">
+            <span data-lang="pt">Analista de BI</span>
+            <span data-lang="en">BI Analyst</span>
+          </div>
           <div class="cv-job-period">
-            <span data-lang="pt">Ago – Out 2013</span>
-            <span data-lang="en">Aug – Oct 2013</span>
+            <span data-lang="pt">Ago 2013 – Out 2013</span>
+            <span data-lang="en">Aug 2013 – Oct 2013</span>
           </div>
         </div>
-        <div class="cv-job-company">MJV Technology &amp; Innovation · Rio de Janeiro, RJ</div>
+        <div class="cv-job-company">MJV Technology &amp; Innovation · Rio de Janeiro</div>
         <div class="cv-job-desc">
-          <ul>
-            <li data-lang="pt">Desenvolveu pipelines ETL de alta performance utilizando PL/SQL e Informatica PowerCenter, garantindo qualidade, consistência e entrega confiável de dados para soluções de Business Intelligence.</li>
-            <li data-lang="en">Developed high-performance ETL pipelines using PL/SQL and Informatica PowerCenter, ensuring data quality, consistency and reliable delivery for Business Intelligence solutions.</li>
-          </ul>
+          <p data-lang="pt">Desenvolvimento de processos ETL com Informatica PowerCenter e PL/SQL em Oracle, e execução dos jobs de ETL.</p>
+          <p data-lang="en">Built ETL processes with Informatica PowerCenter and PL/SQL on Oracle, and ran the ETL jobs.</p>
         </div>
         <div class="cv-stack">
           <span class="cv-stack-tag">Informatica PowerCenter</span>
@@ -677,26 +748,29 @@
       <!-- UniNorte -->
       <div class="cv-job">
         <div class="cv-job-header">
-          <div class="cv-job-title">DBA</div>
+          <div class="cv-job-title">
+            <span data-lang="pt">DBA</span>
+            <span data-lang="en">Database Administrator</span>
+          </div>
           <div class="cv-job-period">
             <span data-lang="pt">Jun 2012 – Jul 2013</span>
             <span data-lang="en">Jun 2012 – Jul 2013</span>
           </div>
         </div>
-        <div class="cv-job-company">UniNorte – Centro Universitário do Norte · Manaus, AM</div>
+        <div class="cv-job-company">
+          <span data-lang="pt">UniNorte (Centro Universitário do Norte) · Manaus, AM</span>
+          <span data-lang="en">UniNorte (Centro Universitário do Norte) · Manaus, Brazil</span>
+        </div>
         <div class="cv-job-desc">
-          <ul>
-            <li data-lang="pt">Administrou ambiente Oracle RAC com dois nós em CentOS para suporte ao sistema acadêmico institucional, garantindo disponibilidade e performance em períodos críticos como matrículas e fechamento de semestres.</li>
-            <li data-lang="en">Administered Oracle RAC environment with two nodes on CentOS supporting the institutional academic system, ensuring availability and performance during critical periods such as enrollment and semester closing.</li>
-            <li data-lang="pt">Desenvolveu soluções de replicação de dados com Materialized Views e PL/SQL, além de implementar Oracle Dataguard para contingência e recuperação de desastres.</li>
-            <li data-lang="en">Developed data replication solutions with Materialized Views and PL/SQL, and implemented Oracle Dataguard for disaster recovery and business continuity.</li>
-          </ul>
+          <p data-lang="pt">DBA Oracle com RAC de dois nós e Data Guard em CentOS. Automação com PL/SQL e shell, tuning, backup e recuperação com RMAN e exp/imp, além de instalações, migrações e upgrades (Oracle 8i a 11g).</p>
+          <p data-lang="en">Oracle DBA running a two-node Oracle RAC and Data Guard on CentOS. PL/SQL and shell automation, performance tuning, backup and recovery with RMAN and exp/imp, plus installations, migrations and upgrades (Oracle 8i to 11g).</p>
         </div>
         <div class="cv-stack">
-          <span class="cv-stack-tag">Oracle 8i/9i/10g/11g</span>
+          <span class="cv-stack-tag">Oracle 8i–11g</span>
           <span class="cv-stack-tag">Oracle RAC</span>
-          <span class="cv-stack-tag">CentOS</span>
+          <span class="cv-stack-tag">Data Guard</span>
           <span class="cv-stack-tag">PL/SQL</span>
+          <span class="cv-stack-tag">CentOS</span>
         </div>
       </div>
 
@@ -712,12 +786,10 @@
             <span data-lang="en">Sep 2011 – May 2012</span>
           </div>
         </div>
-        <div class="cv-job-company">Gemalto · Rio de Janeiro, RJ</div>
+        <div class="cv-job-company">Gemalto · Rio de Janeiro</div>
         <div class="cv-job-desc">
-          <ul>
-            <li data-lang="pt">Prestou suporte a plataformas críticas de telecomunicações, desenvolvendo scripts shell para automação de rotinas operacionais e administrando banco de dados Oracle em ambiente de alta demanda.</li>
-            <li data-lang="en">Provided support to critical telecommunications platforms, developing shell scripts to automate operational routines and administering Oracle databases in a high-demand environment.</li>
-          </ul>
+          <p data-lang="pt">Suporte a uma plataforma de telecom em Oracle e Red Hat: shell script, instalação e backup de banco e tuning de SQL.</p>
+          <p data-lang="en">Support for a telecom platform running on Oracle and Red Hat: shell scripting, database installation and backups, and SQL performance tuning.</p>
         </div>
         <div class="cv-stack">
           <span class="cv-stack-tag">Oracle</span>
@@ -731,27 +803,23 @@
         <div class="cv-job-header">
           <div class="cv-job-title">
             <span data-lang="pt">Analista de Sistemas</span>
-            <span data-lang="en">System Analyst</span>
+            <span data-lang="en">Systems Analyst</span>
           </div>
           <div class="cv-job-period">
             <span data-lang="pt">Jun 2009 – Out 2011</span>
             <span data-lang="en">Jun 2009 – Oct 2011</span>
           </div>
         </div>
-        <div class="cv-job-company">Globo.com · Rio de Janeiro, RJ</div>
+        <div class="cv-job-company">Globo.com · Rio de Janeiro</div>
         <div class="cv-job-desc">
-          <ul>
-            <li data-lang="pt">Atuou em uma das maiores plataformas digitais do Brasil, desenvolvendo scripts Python e Shell para automação de processos e monitoramento de ambientes de alta escala com Nginx.</li>
-            <li data-lang="en">Worked at one of Brazil's largest digital platforms, developing Python and shell scripts for process automation and monitoring of high-scale environments with Nginx.</li>
-            <li data-lang="pt">Suportou operações de banco de dados Oracle e MySQL em infraestrutura de missão crítica, garantindo estabilidade e performance para milhões de usuários.</li>
-            <li data-lang="en">Supported Oracle and MySQL database operations in mission-critical infrastructure, ensuring stability and performance for millions of users.</li>
-          </ul>
+          <p data-lang="pt">Scripts Python e shell, suporte à plataforma, monitoramento de ambientes NGINX e consultas em Oracle e MySQL.</p>
+          <p data-lang="en">Python and shell scripting, platform support, monitoring of NGINX environments, and database queries on Oracle and MySQL.</p>
         </div>
         <div class="cv-stack">
           <span class="cv-stack-tag">Python</span>
           <span class="cv-stack-tag">Oracle</span>
           <span class="cv-stack-tag">MySQL</span>
-          <span class="cv-stack-tag">Nginx</span>
+          <span class="cv-stack-tag">NGINX</span>
           <span class="cv-stack-tag">CentOS</span>
         </div>
       </div>
@@ -770,7 +838,7 @@
         </div>
         <div class="cv-job-company">
           <span data-lang="pt">Ministério da Agricultura · São Paulo, SP</span>
-          <span data-lang="en">Ministry of Agriculture · São Paulo, SP</span>
+          <span data-lang="en">Ministry of Agriculture · São Paulo, Brazil</span>
         </div>
       </div>
     </section>
@@ -783,17 +851,17 @@
       <div class="cv-edu-item">
         <div class="cv-edu-degree">
           <span data-lang="pt">MBA Executivo em Business Intelligence</span>
-          <span data-lang="en">Executive MBA in Business Intelligence</span>
+          <span data-lang="en">Executive MBA, Business Intelligence</span>
         </div>
         <div class="cv-edu-meta">
-          <span>Instituto de Gestão e Tecnologia da Informação</span> · 2021 – 2022
+          <span>IGTI – Instituto de Gestão e Tecnologia da Informação</span> · 2021 – 2022
         </div>
       </div>
 
       <div class="cv-edu-item">
         <div class="cv-edu-degree">
           <span data-lang="pt">Pós-Graduação Executiva em Big Data Analytics</span>
-          <span data-lang="en">Executive Postgraduate in Big Data Analytics</span>
+          <span data-lang="en">Executive Program, Big Data Analytics</span>
         </div>
         <div class="cv-edu-meta">
           <span>Fundação Getulio Vargas (FGV)</span> · 2018 – 2019
@@ -802,8 +870,8 @@
 
       <div class="cv-edu-item">
         <div class="cv-edu-degree">
-          <span data-lang="pt">Bacharelado em Tecnologia — Gestão de Processos</span>
-          <span data-lang="en">Bachelor of Technology — Management Process</span>
+          <span data-lang="pt">Graduação Tecnológica em Gestão de Processos</span>
+          <span data-lang="en">Bachelor of Technology, Process Management</span>
         </div>
         <div class="cv-edu-meta">
           <span>Fundação Getulio Vargas (FGV)</span> · 2012 – 2014
@@ -819,22 +887,22 @@
       <div class="cv-cert-item">
         <div class="cv-cert-badge">❄</div>
         <div>
-          <div class="cv-cert-title">Hands On Essentials – Data Warehouse</div>
-          <div class="cv-cert-issuer">Snowflake</div>
-        </div>
-      </div>
-      <div class="cv-cert-item">
-        <div class="cv-cert-badge">❄</div>
-        <div>
-          <div class="cv-cert-title">Hands On Essentials – Data Lake</div>
-          <div class="cv-cert-issuer">Snowflake</div>
+          <div class="cv-cert-title">Hands On Essentials – Data Warehouse, Data Lake, Data Engineering, Data Applications, Data Sharing</div>
+          <div class="cv-cert-issuer">Snowflake · 2023</div>
         </div>
       </div>
       <div class="cv-cert-item">
         <div class="cv-cert-badge">🌊</div>
         <div>
           <div class="cv-cert-title">Astronomer Certification for Apache Airflow Fundamentals</div>
-          <div class="cv-cert-issuer">Astronomer</div>
+          <div class="cv-cert-issuer">Astronomer · 2022</div>
+        </div>
+      </div>
+      <div class="cv-cert-item">
+        <div class="cv-cert-badge">◆</div>
+        <div>
+          <div class="cv-cert-title">Academy Accreditation – Databricks Lakehouse Fundamentals</div>
+          <div class="cv-cert-issuer">Databricks · 2022</div>
         </div>
       </div>
     </section>
@@ -846,67 +914,99 @@
 
       <div class="skills-grid">
         <div>
-          <div class="skills-group-title">Cloud & Plataformas</div>
+          <div class="skills-group-title">
+            <span data-lang="pt">Cloud &amp; Plataformas</span>
+            <span data-lang="en">Cloud &amp; Platforms</span>
+          </div>
           <div class="skills-tags">
             <span class="skill-tag">Azure</span>
-            <span class="skill-tag">AWS</span>
             <span class="skill-tag">Snowflake</span>
+            <span class="skill-tag">AWS</span>
             <span class="skill-tag">Azure Data Factory</span>
-            <span class="skill-tag">Azure Databricks</span>
             <span class="skill-tag">Azure Functions</span>
+            <span class="skill-tag">Azure Databricks</span>
             <span class="skill-tag">AWS Lambda</span>
-            <span class="skill-tag">AWS Redshift</span>
+            <span class="skill-tag">Redshift</span>
           </div>
         </div>
 
         <div>
-          <div class="skills-group-title">Pipelines & Orquestração</div>
+          <div class="skills-group-title">
+            <span data-lang="pt">Pipelines &amp; Modelagem</span>
+            <span data-lang="en">Pipelines &amp; Modeling</span>
+          </div>
           <div class="skills-tags">
+            <span class="skill-tag">dbt</span>
             <span class="skill-tag">Apache Airflow</span>
             <span class="skill-tag">Apache NiFi</span>
-            <span class="skill-tag">dbt</span>
+            <span class="skill-tag">Snowpipe</span>
             <span class="skill-tag">SSIS</span>
             <span class="skill-tag">ETL / ELT</span>
-            <span class="skill-tag">SnowPipe</span>
-            <span class="skill-tag">Terraform</span>
-            <span class="skill-tag">GitHub Actions</span>
+            <span class="skill-tag">Lakehouse</span>
+            <span class="skill-tag">Data Modeling</span>
           </div>
         </div>
 
         <div>
-          <div class="skills-group-title">Bancos de Dados</div>
+          <div class="skills-group-title">
+            <span data-lang="pt">Bancos de Dados</span>
+            <span data-lang="en">Databases</span>
+          </div>
           <div class="skills-tags">
-            <span class="skill-tag">Oracle</span>
+            <span class="skill-tag">Oracle (RAC, Data Guard)</span>
             <span class="skill-tag">SQL Server</span>
             <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">MariaDB</span>
             <span class="skill-tag">MySQL</span>
             <span class="skill-tag">MongoDB</span>
-            <span class="skill-tag">MariaDB</span>
             <span class="skill-tag">Redis</span>
-            <span class="skill-tag">DynamoDB</span>
           </div>
         </div>
 
         <div>
-          <div class="skills-group-title">Linguagens & DevOps</div>
+          <div class="skills-group-title">
+            <span data-lang="pt">Linguagens &amp; DevOps</span>
+            <span data-lang="en">Languages &amp; DevOps</span>
+          </div>
           <div class="skills-tags">
             <span class="skill-tag">Python</span>
-            <span class="skill-tag">PL/SQL</span>
             <span class="skill-tag">SQL</span>
+            <span class="skill-tag">PL/SQL</span>
             <span class="skill-tag">Shell Script</span>
             <span class="skill-tag">PowerShell</span>
+            <span class="skill-tag">Terraform</span>
             <span class="skill-tag">Azure DevOps</span>
+            <span class="skill-tag">GitHub Actions</span>
             <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Kubernetes (AKS)</span>
             <span class="skill-tag">Git</span>
           </div>
         </div>
 
         <div>
-          <div class="skills-group-title">BI & Visualização</div>
+          <div class="skills-group-title">
+            <span data-lang="pt">Infraestrutura</span>
+            <span data-lang="en">Infrastructure</span>
+          </div>
+          <div class="skills-tags">
+            <span class="skill-tag">Linux</span>
+            <span class="skill-tag">AIX</span>
+            <span class="skill-tag">High Availability</span>
+            <span class="skill-tag">Disaster Recovery</span>
+            <span class="skill-tag">Performance Tuning</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="skills-group-title">
+            <span data-lang="pt">BI &amp; Governança</span>
+            <span data-lang="en">BI &amp; Governance</span>
+          </div>
           <div class="skills-tags">
             <span class="skill-tag">Power BI</span>
             <span class="skill-tag">Tableau</span>
-            <span class="skill-tag">Informatica PowerCenter</span>
+            <span class="skill-tag">Data Governance</span>
+            <span class="skill-tag">LGPD</span>
           </div>
         </div>
 
@@ -921,8 +1021,8 @@
               <span data-lang="en">Portuguese (Native)</span>
             </span>
             <span class="skill-tag">
-              <span data-lang="pt">Inglês (Avançado)</span>
-              <span data-lang="en">English (Advanced)</span>
+              <span data-lang="pt">Inglês (Fluente)</span>
+              <span data-lang="en">English (Full professional)</span>
             </span>
           </div>
         </div>
@@ -934,6 +1034,7 @@
   <script>
     function setLang(lang) {
       document.getElementById('body-root').className = 'lang-' + lang;
+      document.getElementById('html-root').lang = lang;
       document.getElementById('btn-pt').classList.toggle('active', lang === 'pt');
       document.getElementById('btn-en').classList.toggle('active', lang === 'en');
     }
