@@ -452,10 +452,8 @@
 
   <!-- LANG BAR -->
   <div class="lang-bar">
-    <a class="cv-download" href="cv-julio-dantas.pdf" download>
-      <span data-lang="pt">Baixar CV (PDF)</span>
-      <span data-lang="en">Download CV (PDF)</span>
-    </a>
+    <a class="cv-download" data-lang="pt" href="cv-julio-dantas-pt.pdf" download>Baixar CV (PDF)</a>
+    <a class="cv-download" data-lang="en" href="cv-julio-dantas.pdf" download>Download CV (PDF)</a>
     <button class="lang-btn active" id="btn-pt" onclick="setLang('pt')">PT</button>
     <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
   </div>
@@ -470,8 +468,8 @@
       </p>
       <h1 class="cv-name">Júlio <span>Dantas</span></h1>
       <p class="cv-title">
-        <span data-lang="pt">Engenheiro de Dados Sênior · Azure · Snowflake · dbt · Python · SQL · Airflow</span>
-        <span data-lang="en">Senior Data Engineer · Azure · Snowflake · dbt · Python · SQL · Airflow</span>
+        <span data-lang="pt">Engenheiro de Dados Sênior · Financial Data Products · Azure · Snowflake · dbt · Python · SQL</span>
+        <span data-lang="en">Senior Data Engineer · Financial Data Products · Azure · Snowflake · dbt · Python · SQL</span>
       </p>
       <div class="cv-contacts">
         <a class="cv-contact" href="mailto:julio.dantas@yahoo.com.br">
@@ -503,14 +501,14 @@
       <div class="section-label" data-lang="pt">Resumo</div>
       <div class="section-label" data-lang="en">Summary</div>
       <p class="cv-summary" data-lang="pt">
-        Engenheiro de dados sênior na Pantheon, onde cuido da plataforma de dados em Azure e Snowflake. Trabalho com dados há mais de 15 anos e de forma remota desde 2021.
+        Engenheiro de dados sênior no time de Financial Data Products da Pantheon, trabalhando com dados financeiros vindos do SAP e de outros sistemas, em Azure e Snowflake. Trabalho com dados há mais de 15 anos e de forma remota desde 2021.
         <br><br>
         No dia a dia, construo pipelines de ingestão e ETL/ELT com Python (Azure Functions), Azure Data Factory, Snowpipe, Airflow e NiFi, e faço as transformações com dbt no Snowflake. Também cuido das camadas do lakehouse (landing, bronze, silver e gold), do CI/CD com Azure DevOps e GitHub Actions e da infraestrutura com Terraform, além de governança de dados, LGPD e tuning de performance.
         <br><br>
         Antes da engenharia de dados, passei cerca de 10 anos do lado de banco de dados e infraestrutura, como DBA no Tribunal de Justiça do RJ e no Senac RJ, com Oracle RAC, Data Guard, SQL Server, PostgreSQL, MariaDB, Linux e AIX. Uso muito dessa experiência até hoje, principalmente em tuning de performance e modelagem de dados.
       </p>
       <p class="cv-summary" data-lang="en">
-        Senior data engineer at Pantheon, where I take care of the data platform on Azure and Snowflake. I've worked with data for more than 15 years, and remotely since 2021.
+        Senior data engineer on the Financial Data Products team at Pantheon, working with financial data from SAP and other systems on Azure and Snowflake. I've worked with data for more than 15 years, and remotely since 2021.
         <br><br>
         Day to day I build ingestion and ETL/ELT pipelines with Python (Azure Functions), Azure Data Factory, Snowpipe, Airflow and NiFi, and handle transformations with dbt on Snowflake. I also look after the lakehouse layers (landing, bronze, silver, gold), CI/CD with Azure DevOps and GitHub Actions, infrastructure with Terraform, and data governance, LGPD and performance tuning.
         <br><br>
@@ -536,19 +534,19 @@
           </div>
         </div>
         <div class="cv-job-company">
-          <span data-lang="pt">Pantheon Inc · Remoto</span>
-          <span data-lang="en">Pantheon Inc · Remote</span>
+          <span data-lang="pt">Pantheon Inc · Time de Financial Data Products · Remoto</span>
+          <span data-lang="en">Pantheon Inc · Financial Data Products team · Remote</span>
         </div>
         <div class="cv-job-desc">
-          <p data-lang="pt">Cuido da plataforma de dados da empresa em Azure e Snowflake, das fontes até os dados usados pelas áreas de negócio e pela liderança.</p>
-          <p data-lang="en">I take care of the company's data platform on Azure and Snowflake, from the source systems to the data used by business teams and leadership.</p>
+          <p data-lang="pt">Faço parte do time de Financial Data Products, onde cuido da plataforma de dados em Azure e Snowflake. Trazemos dados do SAP e de outros sistemas e APIs para um único lakehouse, e transformamos isso em produtos de dados que as áreas de negócio e a liderança usam em relatórios financeiros e na tomada de decisão.</p>
+          <p data-lang="en">I'm part of the Financial Data Products team, where I take care of the data platform on Azure and Snowflake. We bring data from SAP and other source systems and APIs into a single lakehouse, and turn it into data products that business teams and leadership use for financial reporting and decisions.</p>
           <ul>
             <li data-lang="pt">Desenhei a arquitetura lakehouse (landing, bronze, silver e gold) em Azure Blob Storage e Snowflake</li>
             <li data-lang="en">Designed the lakehouse architecture (landing, bronze, silver and gold) on Azure Blob Storage and Snowflake</li>
-            <li data-lang="pt">Construí a camada de ingestão com APIs Python em Azure Functions, Snowpipe e Azure Data Factory</li>
-            <li data-lang="en">Built the ingestion layer with Python APIs on Azure Functions, Snowpipe and Azure Data Factory</li>
-            <li data-lang="pt">Transformações e modelos de dados com dbt no Snowflake</li>
-            <li data-lang="en">Data transformations and models with dbt on Snowflake</li>
+            <li data-lang="pt">Construí a ingestão das fontes SAP e APIs com Python em Azure Functions, Snowpipe e Azure Data Factory</li>
+            <li data-lang="en">Built the ingestion for SAP and API sources with Python on Azure Functions, Snowpipe and Azure Data Factory</li>
+            <li data-lang="pt">Transformações e modelos de dados com dbt no Snowflake, que alimentam os produtos de dados financeiros</li>
+            <li data-lang="en">Data transformations and models with dbt on Snowflake, which feed the financial data products</li>
             <li data-lang="pt">Orquestração de pipelines com Airflow, Azure Data Factory e NiFi (arquitetura lambda)</li>
             <li data-lang="en">Pipeline orchestration with Airflow, Azure Data Factory and NiFi (lambda architecture)</li>
             <li data-lang="pt">Refatoração de views, stored procedures e pacotes SSIS para melhorar performance</li>
@@ -564,6 +562,8 @@
           <span class="cv-stack-tag">SQL</span>
           <span class="cv-stack-tag">dbt</span>
           <span class="cv-stack-tag">Snowflake</span>
+          <span class="cv-stack-tag">SAP</span>
+          <span class="cv-stack-tag">REST APIs</span>
           <span class="cv-stack-tag">Azure Data Factory</span>
           <span class="cv-stack-tag">Azure Functions</span>
           <span class="cv-stack-tag">Azure SQL Database</span>
@@ -598,30 +598,30 @@
           <span data-lang="en">Senac RJ · Rio de Janeiro, Brazil · On-site</span>
         </div>
         <div class="cv-job-desc">
-          <p data-lang="pt">Responsável técnico por banco de dados e infraestrutura (SQL Server, Oracle, MongoDB e Redis) e pela primeira arquitetura de dados no Azure.</p>
-          <p data-lang="en">Technical lead for database and infrastructure (SQL Server, Oracle, MongoDB and Redis), and for the first data architecture on Azure.</p>
+          <p data-lang="pt">Responsável técnico por banco de dados e infraestrutura (SQL Server, Oracle, MongoDB e Redis) no Senac RJ, instituição de educação profissional. Também participei do projeto de modernização de aplicações e da primeira arquitetura de dados no Azure.</p>
+          <p data-lang="en">Technical lead for database and infrastructure (SQL Server, Oracle, MongoDB and Redis) at Senac RJ, a professional education institution. I also worked on the application modernization project and on the first data architecture on Azure.</p>
           <ul>
+            <li data-lang="pt">Projeto de modernização de aplicações: infraestrutura como código, pipelines de CI/CD no Azure DevOps e bancos SQL no Azure</li>
+            <li data-lang="en">Application modernization project: infrastructure as code, CI/CD pipelines in Azure DevOps and SQL databases on Azure</li>
             <li data-lang="pt">Desenhei a arquitetura de dados com Azure Data Factory e Azure SQL</li>
             <li data-lang="en">Designed the data architecture with Azure Data Factory and Azure SQL</li>
             <li data-lang="pt">Conduzi a parte técnica da adequação à LGPD</li>
             <li data-lang="en">Led the technical side of the LGPD (Brazilian data protection law) rollout</li>
             <li data-lang="pt">Referência de DevOps para o time de desenvolvimento: pipelines no Azure DevOps, imagens no Azure Container Registry e deploys no AKS</li>
             <li data-lang="en">DevOps lead for the development team: Azure DevOps pipelines, images in Azure Container Registry, deployments on AKS</li>
-            <li data-lang="pt">Backups, testes de restore e replicação para recuperação de desastres</li>
-            <li data-lang="en">Backups, restore tests and replication for disaster recovery</li>
-            <li data-lang="pt">Automação com PowerShell, shell script e Python</li>
-            <li data-lang="en">Automation with PowerShell, shell scripts and Python</li>
+            <li data-lang="pt">Backups, testes de restore e replicação para recuperação de desastres; automação com PowerShell, shell script e Python</li>
+            <li data-lang="en">Backups, restore tests and replication for disaster recovery; automation with PowerShell, shell scripts and Python</li>
             <li data-lang="pt">Tuning de queries e índices, patches, integração de dados e migrações de banco</li>
             <li data-lang="en">Query and index tuning, patching, data integration and database migrations</li>
           </ul>
         </div>
         <div class="cv-stack">
           <span class="cv-stack-tag">SQL Server</span>
+          <span class="cv-stack-tag">Azure SQL</span>
           <span class="cv-stack-tag">Oracle</span>
           <span class="cv-stack-tag">MongoDB</span>
           <span class="cv-stack-tag">Redis</span>
           <span class="cv-stack-tag">Azure Data Factory</span>
-          <span class="cv-stack-tag">Azure SQL</span>
           <span class="cv-stack-tag">Azure DevOps</span>
           <span class="cv-stack-tag">ACR</span>
           <span class="cv-stack-tag">AKS</span>
@@ -646,18 +646,18 @@
           </div>
         </div>
         <div class="cv-job-company">
-          <span data-lang="pt">CovidZero · Autônomo · Remoto</span>
-          <span data-lang="en">CovidZero · Self-employed · Remote</span>
+          <span data-lang="pt">CovidZero · Remoto</span>
+          <span data-lang="en">CovidZero · Remote</span>
         </div>
         <div class="cv-job-desc">
-          <p data-lang="pt">Engenharia de dados para o CovidZero, um projeto de dados sobre COVID-19, construído na AWS.</p>
-          <p data-lang="en">Data engineering for CovidZero, a COVID-19 data project, built on AWS.</p>
+          <p data-lang="pt">O CovidZero foi um projeto de voluntários e ONGs para levar à população informação confiável sobre a COVID-19, a partir de dados de hospitais. Construí a parte de dados na AWS.</p>
+          <p data-lang="en">CovidZero was a project run by volunteers and NGOs to give the public reliable information about COVID-19, using data from hospitals. I built the data side on AWS.</p>
           <ul>
             <li data-lang="pt">Desenhei uma arquitetura serverless com AWS Lambda</li>
             <li data-lang="en">Designed a serverless architecture with AWS Lambda</li>
-            <li data-lang="pt">Construí o data lake no S3 e as funções Python de ingestão</li>
-            <li data-lang="en">Built the data lake on S3 and Python functions for data ingestion</li>
-            <li data-lang="pt">Mapeei as fontes de dados e construí os pipelines que carregavam os dados curados no Redshift</li>
+            <li data-lang="pt">Construí o data lake no S3 e as funções Python de ingestão dos dados dos hospitais</li>
+            <li data-lang="en">Built the data lake on S3 and the Python functions that ingested the hospital data</li>
+            <li data-lang="pt">Mapeei as fontes e construí os pipelines que carregavam os dados curados no Redshift</li>
             <li data-lang="en">Mapped the data sources and built the pipelines that loaded curated data into Redshift</li>
           </ul>
         </div>
@@ -688,8 +688,8 @@
           <span data-lang="en">Rio de Janeiro State Court (TJRJ)</span>
         </div>
         <div class="cv-job-desc">
-          <p data-lang="pt">DBA sênior responsável pela infraestrutura de banco de dados do tribunal.</p>
-          <p data-lang="en">Senior DBA responsible for the court's database infrastructure.</p>
+          <p data-lang="pt">DBA sênior responsável pela infraestrutura de banco de dados por trás dos sistemas usados no judiciário do estado. Meu foco era infraestrutura e banco de dados: alta disponibilidade, recuperação de desastres, performance e upgrades, com Oracle rodando em AIX e Linux.</p>
+          <p data-lang="en">Senior DBA responsible for the database infrastructure behind the systems used across the state's judiciary. My focus was infrastructure and databases: high availability, disaster recovery, performance and upgrades, with Oracle running on AIX and Linux.</p>
           <ul>
             <li data-lang="pt">Administrei um Oracle RAC de dois nós e Oracle Data Guard em AIX</li>
             <li data-lang="en">Administered a two-node Oracle RAC and Oracle Data Guard on AIX</li>
@@ -762,13 +762,24 @@
           <span data-lang="en">UniNorte (Centro Universitário do Norte) · Manaus, Brazil</span>
         </div>
         <div class="cv-job-desc">
-          <p data-lang="pt">DBA Oracle com RAC de dois nós e Data Guard em CentOS. Automação com PL/SQL e shell, tuning, backup e recuperação com RMAN e exp/imp, além de instalações, migrações e upgrades (Oracle 8i a 11g).</p>
-          <p data-lang="en">Oracle DBA running a two-node Oracle RAC and Data Guard on CentOS. PL/SQL and shell automation, performance tuning, backup and recovery with RMAN and exp/imp, plus installations, migrations and upgrades (Oracle 8i to 11g).</p>
+          <p data-lang="pt">DBA responsável pela infraestrutura de banco de dados dos sistemas acadêmicos da universidade. Um trabalho parecido com o do tribunal, só que na educação: manter os bancos disponíveis e rápidos, inclusive em picos como o período de matrículas.</p>
+          <p data-lang="en">DBA responsible for the database infrastructure behind the university's academic systems. Similar work to the court, in education instead of justice: keeping the databases available and fast, including peak periods like enrollment.</p>
+          <ul>
+            <li data-lang="pt">Administrei um Oracle RAC de dois nós e Oracle Data Guard em CentOS</li>
+            <li data-lang="en">Administered a two-node Oracle RAC and Oracle Data Guard on CentOS</li>
+            <li data-lang="pt">Instalações, migrações e upgrades de versão (Oracle 8i a 11g)</li>
+            <li data-lang="en">Installations, migrations and version upgrades (Oracle 8i to 11g)</li>
+            <li data-lang="pt">Automação com PL/SQL e shell script, e materialized views para replicação de dados</li>
+            <li data-lang="en">PL/SQL and shell scripts to automate database work, and materialized views for data replication</li>
+            <li data-lang="pt">Tuning, manutenção preventiva e backup e recuperação com RMAN e exp/imp</li>
+            <li data-lang="en">Performance tuning, preventive maintenance, and backup and recovery with RMAN and exp/imp</li>
+          </ul>
         </div>
         <div class="cv-stack">
           <span class="cv-stack-tag">Oracle 8i–11g</span>
           <span class="cv-stack-tag">Oracle RAC</span>
           <span class="cv-stack-tag">Data Guard</span>
+          <span class="cv-stack-tag">RMAN</span>
           <span class="cv-stack-tag">PL/SQL</span>
           <span class="cv-stack-tag">CentOS</span>
         </div>
@@ -840,7 +851,12 @@
           <span data-lang="pt">Ministério da Agricultura · São Paulo, SP</span>
           <span data-lang="en">Ministry of Agriculture · São Paulo, Brazil</span>
         </div>
+        <div class="cv-job-desc">
+          <p data-lang="pt">Suporte a aplicações, atendimento aos usuários e suporte a banco de dados.</p>
+          <p data-lang="en">Application support, user support and database support.</p>
+        </div>
       </div>
+
     </section>
 
     <!-- ── EDUCATION ── -->
@@ -937,6 +953,8 @@
           </div>
           <div class="skills-tags">
             <span class="skill-tag">dbt</span>
+            <span class="skill-tag"><span data-lang="pt">SAP (fonte de dados)</span><span data-lang="en">SAP (as data source)</span></span>
+            <span class="skill-tag">REST APIs</span>
             <span class="skill-tag">Apache Airflow</span>
             <span class="skill-tag">Apache NiFi</span>
             <span class="skill-tag">Snowpipe</span>
